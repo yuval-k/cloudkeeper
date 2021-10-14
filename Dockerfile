@@ -1,4 +1,4 @@
-FROM debian:stable as build-env
+FROM debian:buster as build-env
 ENV DEBIAN_FRONTEND=noninteractive
 ARG TESTS
 ARG SOURCE_COMMIT
@@ -137,7 +137,7 @@ RUN echo "${SOURCE_COMMIT:-unknown}" > /usr/local/etc/git-commit.HEAD
 
 
 # Setup main image
-FROM debian:stable
+FROM debian:buster
 ENV DEBIAN_FRONTEND=noninteractive
 COPY --from=build-env /usr/local /usr/local
 ENV PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/db/bin:/usr/local/sbin:/usr/local/bin
