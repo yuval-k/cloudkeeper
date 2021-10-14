@@ -56,7 +56,7 @@ RUN mkdir -p /build-pypy
 RUN python3 -m pip install --upgrade pip
 #RUN pypy3 -m pip install --upgrade pip
 RUN rm -f /usr/local/bin/pip*
-RUN python3 -m pip install tox flake8
+RUN python3 -m pip install tox flake8 wheel
 
 # Build cklib
 COPY cklib /usr/src/cklib
@@ -99,7 +99,7 @@ RUN python3 -m pip wheel -w /build -f /build .
 # Build cloudkeeper plugins
 COPY plugins /usr/src/plugins
 WORKDIR /usr/src
-RUN cd plugins/aws/ && pip wheel -w /build -f /build . && cd -
+RUN cd plugins/aws/ && python3 -m pip wheel -w /build -f /build . && cd -
 RUN if [ "X${TESTS:-false}" = Xtrue ]; then find plugins/ -name tox.ini | while read toxini; do cd $(dirname "$toxini") && tox && cd - || exit 1; done; fi
 RUN find plugins/ -maxdepth 1 -mindepth 1 -type d -print0 | xargs -0 python3 -m pip wheel -w /build -f /build
 
