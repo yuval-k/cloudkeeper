@@ -154,7 +154,7 @@ RUN groupadd -g "${PGID:-0}" -o cloudkeeper \
         pypy3 \
         dumb-init \
         dnsmasq \
-        libffi7 \
+        libffi6 \
         openssl \
         procps \
         dateutils \
