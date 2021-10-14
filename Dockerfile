@@ -54,7 +54,7 @@ RUN mkdir -p /build-pypy
 
 # Download and install Python test tools
 RUN python3 -m pip install --upgrade pip
-RUN pypy3 -m pip install --upgrade pip
+#RUN pypy3 -m pip install --upgrade pip
 RUN rm -f /usr/local/bin/pip*
 RUN python3 -m pip install tox flake8
 
@@ -63,13 +63,14 @@ COPY cklib /usr/src/cklib
 WORKDIR /usr/src/cklib
 RUN if [ "X${TESTS:-false}" = Xtrue ]; then tox; fi
 RUN python3 -m pip wheel -w /build -f /build .
-RUN pypy3 -m pip wheel -w /build-pypy -f /build-pypy .
+#RUN pypy3 -m pip wheel -w /build-pypy -f /build-pypy .
 
 # Build ckcore
 COPY ckcore /usr/src/ckcore
 WORKDIR /usr/src/ckcore
 #RUN if [ "X${TESTS:-false}" = Xtrue ]; then nohup bash -c "/usr/local/db/bin/arangod --database.directory /tmp --server.endpoint tcp://127.0.0.1:8529 --database.password root &"; sleep 5; tox; fi
-RUN pypy3 -m pip wheel -w /build-pypy -f /build-pypy .
+#RUN pypy3 -m pip wheel -w /build-pypy -f /build-pypy .
+RUN python3 -m pip wheel -w /build -f /build .
 
 # Build cloudkeeperV1
 COPY cloudkeeperV1 /usr/src/cloudkeeperV1
@@ -107,7 +108,7 @@ RUN python3 -m pip wheel -w /build -f /build supervisor==${SUPERVISOR_VERSION}
 
 # Install all wheels
 RUN python3 -m pip install -f /build /build/*.whl
-RUN pypy3 -m pip install -f /build-pypy /build-pypy/*.whl
+#RUN pypy3 -m pip install -f /build-pypy /build-pypy/*.whl
 
 # Copy image config and startup files
 WORKDIR /usr/src/cloudkeeper
