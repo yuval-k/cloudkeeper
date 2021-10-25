@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Permissions &mdash; Cloudkeeper v2.0.0a1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Discovery" href="../manual/discovery.html" />
+    <link rel="prev" title="Setup individual components" href="setup_individual_components.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+  <a href="../index.html" class="icon icon-home">
+  
+    <img src="../_static/SomeEngineering_Logo_m.png" class="logo" alt="Logo"/>
+  
+  Cloudkeeper
+
+</a>
+
+
+  
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#install-run-cloudkeeper">Install &amp; Run Cloudkeeper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#aws-credentials">AWS Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#run-cloudkeeper">Run Cloudkeeper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#start-the-cloudkeeper-cli">Start the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#collect-aws-inventory">Collect AWS Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#you-have-this-many-ressources">You have this many ressources!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#usage-of-the-cloudkeeper-cli">Usage of the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#how-to-access-help">How to access help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#list-your-resource-types">List your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#query-your-resource-types">Query your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#count-and-filter-your-resources">Count and filter your resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup_individual_components.html">Setup individual components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup_individual_components.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup_individual_components.html#prepare-your-environment">Prepare your environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#example-for-ckcore">Example for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#arangodb">ArangoDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#run">Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#prepare-graph-database-for-ckcore">Prepare graph database for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_individual_components.html#install-cloudkeeper-components">Install Cloudkeeper components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#ckcore">ckcore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#install-ckcore">Install ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#run-ckcore">Run ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#securing-ckcore">Securing ckcore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#cksh">cksh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#install-cksh">Install cksh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#id2">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#run-cksh">Run cksh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#ckworker">ckworker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#install-ckworker">Install ckworker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#ckworker-plugins">ckworker plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#id3">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#run-ckworker">Run ckworker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#ckmetrics">ckmetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#install-ckmetrics">Install ckmetrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#id4">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="setup_individual_components.html#run-ckmetrics">Run ckmetrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_individual_components.html#optional-run-prometheus">(Optional) Run Prometheus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#id6">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_individual_components.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup_individual_components.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Access Permissions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#aws-permissions">AWS Permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#discovery-only">Discovery only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#full-capabilities">Full capabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/discovery.html">Discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#graph-node">Graph Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/graph_node_spotlight.html">Spotlight: Graph Node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#available-commands">Available Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#query">query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#reported">reported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#desired">desired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#metadata">metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#selecting-nodes">Selecting Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-by-kind">Select nodes by kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-by-predicate">Select nodes by predicate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#property-path">property_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#operation">operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#value">value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#example-predicates">Example predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-by-id">Select nodes by id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#combine-selections">Combine selections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#graph-edges">Graph Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#traversal-selectors">Traversal Selectors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#inbound-and-outbound">Inbound and outbound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-all-direct-nodes-outbound-of-node">Select all direct nodes outbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-all-direct-nodes-inbound-of-node">Select all direct nodes inbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-that-include-the-current-node">Select nodes that include the current node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-with-a-defined-depth-in-the-graph">Select nodes with a defined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-with-an-undefined-depth-in-the-graph">Select nodes with an undefined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-inbound-and-outbound-nodes">Select inbound and outbound nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#abbreviations">Abbreviations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#traversal-selection-commands">Traversal Selection Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#ensuring-an-existing-defined-graph-structure">Ensuring an existing defined graph structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#ensure-there-is-no-matching-node">Ensure there is no matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#ensure-there-is-at-least-one-matching-node">Ensure there is at least one matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#ensure-there-is-a-specific-count-of-matching-nodes">Ensure there is a specific count of matching nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#aggregation-of-data">Aggregation of data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#aggregation-example">Aggregation example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#syntax-of-an-aggregation-query-part">Syntax of an aggregation query part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#examples-of-aggregation-functions">Examples of aggregation functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/action.html">Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/action.html#how-cloudkeeper-maintains-your-resources">How Cloudkeeper maintains your resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/action.html#workflows">Workflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#collect">collect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#cleanup">cleanup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#metrics">metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#collect-and-cleanup">collect_and_cleanup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/action.html#working-with-tags">Working with tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/action.html#deleting-resources">Deleting resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/action.html#mark-resources-for-deletion">Mark resources for deletion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/action.html#delete-the-actual-ressources">Delete the actual ressources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/query_library.html">Query library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/query_library.html#by-kind">By kind</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#aws-alb">aws_alb</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#orphaned-load-balancers-that-have-no-active-backend">Orphaned Load Balancers that have no active backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#aws-iam-access-key">aws_iam_access_key</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#number-of-active-access-keys-per-user">Number of active access keys per user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#certificate">certificate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#find-expired-ssl-certificates-currently-in-use">Find expired ssl certificates currently in use</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#quota">quota</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#find-current-quota-consumption-to-prevent-service-interruptions">Find current quota consumption to prevent service interruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#volume">volume</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#discover-unused-volumes">Discover unused volumes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/query_library.html#query-missing">Query missing?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloudkeeper</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cloudkeeper/components/index.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckcore">ckcore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html">Spotlight: API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html#evaluate">Evaluate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html#execute">Execute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#cksh">cksh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckmetrics">ckmetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckworker">ckworker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#cklib">cklib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudkeeper/model.html">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#resource">Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#resource-hierarchy">Resource Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#kind-cli-command"><code class="docutils literal notranslate"><span class="pre">kind</span></code> CLI command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#complex-and-simple-kinds">Complex and simple kinds</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Cloudkeeper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Access Permissions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting_started/access_permissions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="access-permissions">
+<span id="id1"></span><h1>Access Permissions<a class="headerlink" href="#access-permissions" title="Permalink to this headline"></a></h1>
+<p>To use Cloudkeeper with all it’s features - including cleanup - it requires wide permissions.
+It needs to collect all the resources, do tag validations and updates as well as deleting resources.
+To use Cloudkeeper in a read-only capacity you can limit access to your cloud provider accordingly.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<div class="line-block">
+<div class="line">Cloudkeeper will <strong>NOT</strong> delete resources marked for deletion by default, even when having the neccessary permissions!</div>
+<div class="line">Read more about this here: <a class="reference internal" href="../manual/action.html#delete-warning"><span class="std std-ref">Deleting resources</span></a></div>
+</div>
+</div>
+<p>Cloudkeeper will <strong>silently ignore</strong> collecting specific resources if it does not have the required permissions.</p>
+<div class="section" id="aws-permissions">
+<h2>AWS Permissions<a class="headerlink" href="#aws-permissions" title="Permalink to this headline"></a></h2>
+<p>To enable the full capabilities of Cloudkeeper it needs a PowerUser like role and then deny the ones we don’t want it to have.</p>
+<div class="section" id="discovery-only">
+<h3>Discovery only<a class="headerlink" href="#discovery-only" title="Permalink to this headline"></a></h3>
+<p>To use Cloudkeeper in a read-only capacity it needs the following IAM role permissions.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Read Only permissions</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;acm:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;apigateway:GET&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;application-autoscaling:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;appstream:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;appstream:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;appstream:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;athena:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;athena:Batch*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;athena:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;autoscaling:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;batch:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;batch:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;clouddirectory:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;clouddirectory:BatchRead&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;clouddirectory:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;clouddirectory:LookupPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:Estimate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:Detect*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:Validate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudfront:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudfront:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudhsm:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudhsm:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudhsm:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudsearch:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudsearch:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:LookupEvents&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:ListPublicKeys&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:ListTags&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:GetTrailStatus&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:GetEventSelectors&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:DescribeTrails&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codebuild:BatchGet*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codebuild:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codecommit:BatchGet*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codecommit:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codecommit:GitPull&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codecommit:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codedeploy:BatchGet*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codedeploy:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codedeploy:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codepipeline:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codepipeline:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codestar:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codestar:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;codestar:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-identity:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-identity:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-identity:Lookup*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-sync:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-sync:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-sync:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-sync:QueryRecords&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-idp:AdminList*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-idp:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-idp:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-idp:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;config:Deliver*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;config:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;config:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;config:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;connect:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;connect:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;connect:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;compute-optimizer:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datapipeline:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datapipeline:EvaluateExpression&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datapipeline:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datapipeline:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datapipeline:QueryObjects&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datapipeline:Validate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datasync:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;datasync:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;directconnect:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;directconnect:Confirm*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;devicefarm:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;devicefarm:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;discovery:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;discovery:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;discovery:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dms:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dms:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dms:Test*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ds:Check*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ds:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ds:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ds:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ds:Verify*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:BatchGet*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:Query&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:Scan&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2messages:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:BatchCheck*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:BatchGet*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecs:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:GetAuthorizationToken&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:BatchCheckLayerAvailability&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:GetDownloadUrlForLayer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:GetRepositoryPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:DescribeRepositories&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:ListImages&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:DescribeImages&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:BatchGetImage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;eks:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;eks:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticache:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticache:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticbeanstalk:Check*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticbeanstalk:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticbeanstalk:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticbeanstalk:Request*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticbeanstalk:Retrieve*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticbeanstalk:Validate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticfilesystem:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticmapreduce:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticmapreduce:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticmapreduce:View*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elastictranscoder:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elastictranscoder:Read*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;es:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;es:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;es:ESHttpGet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;es:ESHttpHead&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:Test*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;firehose:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;firehose:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gamelift:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gamelift:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gamelift:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gamelift:RequestUploadCredentials&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gamelift:ResolveAlias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gamelift:Search*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;glacier:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;glacier:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;glacier:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;globalaccelerator:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;globalaccelerator:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;health:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:Generate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:Simulate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;importexport:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;importexport:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;inspector:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;inspector:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;inspector:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;inspector:Preview*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iot:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iot:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iot:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesisanalytics:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesisanalytics:Discover*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesisanalytics:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesis:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesis:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesis:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kms:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kms:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kms:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lex:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lightsail:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lightsail:Is*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lightsail:Download*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:FilterLogEvents&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:ListTagsLogGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:TestMetricFilter&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;machinelearning:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;machinelearning:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mobileanalytics:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mobilehub:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mobilehub:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mobilehub:Validate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mobilehub:Verify*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mobiletargeting:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;opsworks:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;opsworks:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;opsworks-cm:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;organizations:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;organizations:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;polly:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;polly:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;polly:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;polly:SynthesizeSpeech&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pricing:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pricing:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rekognition:CompareFaces&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rekognition:Detect*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rekognition:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rekognition:Search*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rds:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rds:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rds:Download*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;redshift:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;redshift:View*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;redshift:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;resource-explorer:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;resource-groups:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;resource-groups:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;resource-groups:Search*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53:Test*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:Check*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:View*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;s3:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;s3:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;s3:Head*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:DescribeTrainingJob&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:ListTags&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:DescribeNotebookInstance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:DescribeModel&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:ListTrainingJobs&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:ListEndpointConfigs&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:DescribeEndpointConfig&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:CreatePresignedNotebookInstanceUrl&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:ListModels&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:DescribeEndpoint&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:ListNotebookInstances&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:ListEndpoints&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:InvokeEndpoint&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sdb:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sdb:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sdb:Select*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secretsmanager:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secretsmanager:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicecatalog:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicecatalog:Scan*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicecatalog:Search*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicecatalog:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ses:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ses:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;shield:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;shield:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sns:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sns:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sns:Check*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sqs:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sqs:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sqs:Receive*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ssm:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ssm:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ssm:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;states:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;states:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;states:GetExecutionHistory&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;storagegateway:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;storagegateway:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sts:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;support:*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;swf:Count*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;swf:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;swf:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;swf:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tag:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tag:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;trustedadvisor:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;waf:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;waf:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;waf-regional:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;waf-regional:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workdocs:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workdocs:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workdocs:CheckAlias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workmail:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workmail:Get*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workmail:List*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workmail:Search*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workspaces:Describe*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;xray:BatchGet*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;xray:Get*&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="full-capabilities">
+<h3>Full capabilities<a class="headerlink" href="#full-capabilities" title="Permalink to this headline"></a></h3>
+<p>For production use - where Cloudkeeper also clean-up and validate tags - the needed permission role is a PowerUser that is locked down to not be able to create any resources or modify IAM settings.</p>
+<p>The following three policies are needed for Cloudkeeper to run with full capabilities.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Cloudkeeper allow</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CloudkeeperAllow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Cloudkeeper deny</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CloudkeeperDeny&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Deny&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;support:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;storagegateway:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;states:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ssm:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sqs:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sns:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ses:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:Request*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:Put*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:Disassociate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:Delete*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicequotas:Associate*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;servicecatalog:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sagemaker:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;s3:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:UpdateDomainNameservers&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:UpdateDomainContactPrivacy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:UpdateDomainContact&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:TransferDomain&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:RetrieveDomainAuthCode&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:ResendContactReachabilityEmail&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:RenewDomain&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:RegisterDomain&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:EnableDomainTransferLock&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53domains:EnableDomainAutoRenew&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;route53:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;redshift:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;rds:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;logs:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lambda:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kms:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinesis:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iotsitewise:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iotevents:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iotanalytics:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iot:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iot1click:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;importexport:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;glue:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;globalaccelerator:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;glacier:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:TagResource&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:PutTargets&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:PutRule&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:PutPermission&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:PutEvents&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;events:EnableRule&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;es:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticmapreduce:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticloadbalancing:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticfilesystem:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;elasticache:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;eks:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ecr:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2messages:SendReply&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2messages:FailMessage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2messages:AcknowledgeMessage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVpnGateway&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVpnConnectionRoute&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVpnConnection&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVpcPeeringConnection&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVpcEndpoint&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVpc&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateVolume&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateSubnet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateSpotDatafeedSubscription&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateSnapshot&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateSecurityGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateRouteTable&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateRoute&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateReservedInstancesListing&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreatePlacementGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNetworkInterface&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNetworkAclEntry&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNetworkAcl&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateNatGateway&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateKeyPair&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateInternetGateway&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateInstanceExportTask&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateImage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateFlowLogs&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateDhcpOptions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ec2:CreateCustomerGateway&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dynamodb:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ds:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cognito-idp:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:SetAlarmState&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:PutMetricData&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:PutMetricAlarm&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:PutDashboard&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudwatch:EnableAlarmActions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudtrail:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudsearch:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudfront:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;cloudformation:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;budgets:ViewBudget&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;batch:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;aws-portal:Modify*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;aws-marketplace-management:uploadFiles&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;autoscaling:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;athena:Create*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;application-autoscaling:RegisterScalableTarget&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;application-autoscaling:PutScheduledAction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;application-autoscaling:PutScalingPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;apigateway:UpdateRestApiPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;apigateway:PUT&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;apigateway:POST&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;apigateway:PATCH&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:UpdateCertificateOptions&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:ResendValidationEmail&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:RequestCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:RenewCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:ImportCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;acm:AddTagsToCertificate&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Cloudkeeper deny IAM</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CloudkeeperDenyIAM&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Deny&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;iam:UploadSigningCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UploadServerCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UploadSSHPublicKey&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateUser&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateSigningCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateServiceSpecificCredential&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateServerCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateSSHPublicKey&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateSAMLProvider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateRoleDescription&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateOpenIDConnectProviderThumbprint&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateLoginProfile&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateAssumeRolePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateAccountPasswordPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UpdateAccessKey&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:SimulatePrincipalPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:SimulateCustomPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:SetSecurityTokenServicePreferences&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:SetDefaultPolicyVersion&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:ResyncMFADevice&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:ResetServiceSpecificCredential&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:RemoveUserFromGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:RemoveClientIDFromOpenIDConnectProvider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PutUserPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PutUserPermissionsBoundary&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PutRolePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PutRolePermissionsBoundary&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PutGroupPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:PassRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:GenerateServiceLastAccessedDetails&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:GenerateCredentialReport&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:EnableMFADevice&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DetachUserPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DetachGroupPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteVirtualMFADevice&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteUserPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteUserPermissionsBoundary&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteUser&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteSigningCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteServiceSpecificCredential&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteServiceLinkedRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteServerCertificate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteSSHPublicKey&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteSAMLProvider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteOpenIDConnectProvider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteLoginProfile&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteGroupPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteAccountPasswordPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteAccountAlias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteAccessKey&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeactivateMFADevice&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateVirtualMFADevice&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateUser&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateServiceSpecificCredential&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateServiceLinkedRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateSAMLProvider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreatePolicyVersion&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreatePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateOpenIDConnectProvider&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateLoginProfile&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateInstanceProfile&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateAccountAlias&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:CreateAccessKey&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:ChangePassword&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AttachUserPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AttachRolePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AttachGroupPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AddUserToGroup&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AddRoleToInstanceProfile&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:AddClientIDToOpenIDConnectProvider&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CloudkeeperDenyIAMPredefinedRoles&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Deny&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;iam:UpdateRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:UntagRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:TagRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:RemoveRoleFromInstanceProfile&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DetachRolePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteRolePolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteRolePermissionsBoundary&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeleteInstanceProfile&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/aws-service-role/organizations.amazonaws.com/AWSServiceRoleForOrganizations&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/TeamCity/TeamCity-PowerUser&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/TeamCity/TeamCity-Agent&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/OrganizationAccountAccessRole&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Mesosphere-ReadOnly&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Mesosphere-PowerUser&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Mesosphere-OneloginAccess&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Mesosphere-Admin&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Jenkins/Jenkins-S3-DOCS-Staging&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Jenkins/Jenkins-S3-DOCS-Production&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Jenkins/Jenkins-S3-DOCS-Development&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:role/Jenkins/Jenkins-PowerUser&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;CloudkeeperDenyIAMPredefinedPolicies&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Deny&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;iam:SetDefaultPolicyVersion&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeletePolicyVersion&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;iam:DeletePolicy&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;arn:aws:iam::*:policy/OneLoginAccess&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:policy/MesosphereReadOnlyPolicy&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arn:aws:iam::*:policy/MesospherePowerUserPolicy&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup_individual_components.html" class="btn btn-neutral float-left" title="Setup individual components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../manual/discovery.html" class="btn btn-neutral float-right" title="Discovery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Some Engineering Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-237E5P27RE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-237E5P27RE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

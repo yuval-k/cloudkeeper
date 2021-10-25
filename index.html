@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Cloudkeeper v2.0.0a1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick start" href="getting_started/quick_start.html" />
+    <link rel="prev" title="Cloudkeeper Docs contents" href="contents.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+  <a href="#" class="icon icon-home">
+  
+    <img src="_static/SomeEngineering_Logo_m.png" class="logo" alt="Logo"/>
+  
+  Cloudkeeper
+
+</a>
+
+
+  
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/quick_start.html#install-run-cloudkeeper">Install &amp; Run Cloudkeeper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#aws-credentials">AWS Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#run-cloudkeeper">Run Cloudkeeper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/quick_start.html#start-the-cloudkeeper-cli">Start the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#collect-aws-inventory">Collect AWS Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#you-have-this-many-ressources">You have this many ressources!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/quick_start.html#usage-of-the-cloudkeeper-cli">Usage of the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#how-to-access-help">How to access help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#list-your-resource-types">List your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#query-your-resource-types">Query your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#count-and-filter-your-resources">Count and filter your resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/quick_start.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/quick_start.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/setup_individual_components.html">Setup individual components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/setup_individual_components.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/setup_individual_components.html#prepare-your-environment">Prepare your environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#example-for-ckcore">Example for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#arangodb">ArangoDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#run">Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#prepare-graph-database-for-ckcore">Prepare graph database for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/setup_individual_components.html#install-cloudkeeper-components">Install Cloudkeeper components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#ckcore">ckcore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#install-ckcore">Install ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#run-ckcore">Run ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#securing-ckcore">Securing ckcore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#cksh">cksh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#install-cksh">Install cksh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#id2">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#run-cksh">Run cksh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#ckworker">ckworker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#install-ckworker">Install ckworker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#ckworker-plugins">ckworker plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#id3">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#run-ckworker">Run ckworker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#ckmetrics">ckmetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#install-ckmetrics">Install ckmetrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#id4">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started/setup_individual_components.html#run-ckmetrics">Run ckmetrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/setup_individual_components.html#optional-run-prometheus">(Optional) Run Prometheus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#id6">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/setup_individual_components.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/setup_individual_components.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/access_permissions.html">Access Permissions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started/access_permissions.html#aws-permissions">AWS Permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/access_permissions.html#discovery-only">Discovery only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started/access_permissions.html#full-capabilities">Full capabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual/discovery.html">Discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#graph-node">Graph Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/graph_node_spotlight.html">Spotlight: Graph Node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#available-commands">Available Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#query">query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#reported">reported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#desired">desired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#metadata">metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#selecting-nodes">Selecting Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-nodes-by-kind">Select nodes by kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-nodes-by-predicate">Select nodes by predicate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/discovery.html#property-path">property_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="manual/discovery.html#operation">operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="manual/discovery.html#value">value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="manual/discovery.html#example-predicates">Example predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-nodes-by-id">Select nodes by id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#combine-selections">Combine selections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#graph-edges">Graph Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#traversal-selectors">Traversal Selectors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#inbound-and-outbound">Inbound and outbound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-all-direct-nodes-outbound-of-node">Select all direct nodes outbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-all-direct-nodes-inbound-of-node">Select all direct nodes inbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-nodes-that-include-the-current-node">Select nodes that include the current node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-nodes-with-a-defined-depth-in-the-graph">Select nodes with a defined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-nodes-with-an-undefined-depth-in-the-graph">Select nodes with an undefined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#select-inbound-and-outbound-nodes">Select inbound and outbound nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#abbreviations">Abbreviations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#traversal-selection-commands">Traversal Selection Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#ensuring-an-existing-defined-graph-structure">Ensuring an existing defined graph structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#ensure-there-is-no-matching-node">Ensure there is no matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#ensure-there-is-at-least-one-matching-node">Ensure there is at least one matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#ensure-there-is-a-specific-count-of-matching-nodes">Ensure there is a specific count of matching nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/discovery.html#aggregation-of-data">Aggregation of data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#aggregation-example">Aggregation example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#syntax-of-an-aggregation-query-part">Syntax of an aggregation query part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/discovery.html#examples-of-aggregation-functions">Examples of aggregation functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/action.html">Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/action.html#how-cloudkeeper-maintains-your-resources">How Cloudkeeper maintains your resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/action.html#workflows">Workflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/action.html#collect">collect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="manual/action.html#cleanup">cleanup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="manual/action.html#metrics">metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="manual/action.html#collect-and-cleanup">collect_and_cleanup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/action.html#working-with-tags">Working with tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/action.html#deleting-resources">Deleting resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/action.html#mark-resources-for-deletion">Mark resources for deletion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual/action.html#delete-the-actual-ressources">Delete the actual ressources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual/query_library.html">Query library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/query_library.html#by-kind">By kind</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual/query_library.html#aws-alb">aws_alb</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/query_library.html#orphaned-load-balancers-that-have-no-active-backend">Orphaned Load Balancers that have no active backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="manual/query_library.html#aws-iam-access-key">aws_iam_access_key</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/query_library.html#number-of-active-access-keys-per-user">Number of active access keys per user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="manual/query_library.html#certificate">certificate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/query_library.html#find-expired-ssl-certificates-currently-in-use">Find expired ssl certificates currently in use</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="manual/query_library.html#quota">quota</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/query_library.html#find-current-quota-consumption-to-prevent-service-interruptions">Find current quota consumption to prevent service interruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="manual/query_library.html#volume">volume</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="manual/query_library.html#discover-unused-volumes">Discover unused volumes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual/query_library.html#query-missing">Query missing?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloudkeeper</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudkeeper/components/index.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/components/index.html#ckcore">ckcore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudkeeper/components/ckcore_spotlight.html">Spotlight: API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudkeeper/components/ckcore_spotlight.html#evaluate">Evaluate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudkeeper/components/ckcore_spotlight.html#execute">Execute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/components/index.html#cksh">cksh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/components/index.html#ckmetrics">ckmetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/components/index.html#ckworker">ckworker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/components/index.html#cklib">cklib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudkeeper/model.html">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/model.html#resource">Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/model.html#resource-hierarchy">Resource Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/model.html#kind-cli-command"><code class="docutils literal notranslate"><span class="pre">kind</span></code> CLI command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudkeeper/model.html#complex-and-simple-kinds">Complex and simple kinds</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">Cloudkeeper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sparta">Cloudkeeper is an open-source tool doing <b>“housekeeping for clouds”</b> - find leaky resources, manage quota limits, detect drift and clean up.</div><div class="section" id="id1">
+<h1>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Hello World in Cloudkeeper 🌍</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>match is(resource) | count
+total matched: 459241
+total unmatched: 0
+</pre></div>
+</div>
+</div>
+<p>Welcome to the official Cloudkeeper documentation!</p>
+<a class="reference external image-reference" href="https://discord.gg/someengineering"><img alt="https://img.shields.io/discord/778029408132923432?logo=discord&amp;logoColor=%23ffffff" src="https://img.shields.io/discord/778029408132923432?logo=discord&amp;logoColor=%23ffffff" /></a>
+<img alt="https://img.shields.io/github/workflow/status/someengineering/cloudkeeper/Check%20PR%20(Documentation)" src="https://img.shields.io/github/workflow/status/someengineering/cloudkeeper/Check%20PR%20(Documentation)" />
+<a class="reference external image-reference" href="https://github.com/someengineering/cloudkeeper"><img alt="https://img.shields.io/github/stars/someengineering/cloudkeeper?style=social" src="https://img.shields.io/github/stars/someengineering/cloudkeeper?style=social" /></a>
+<div class="section" id="what-is-cloudkeeper">
+<h2>What is Cloudkeeper?<a class="headerlink" href="#what-is-cloudkeeper" title="Permalink to this headline"></a></h2>
+<p>The official <a class="reference external" href="https://github.com/someengineering/cloudkeeper">GitHub repository can be found here</a>.</p>
+<p>Cloudkeeper indexes resources, captures dependencies and maps out your infrastructure in an understandable graph. The graph contains metrics for each resource.</p>
+<p>Developers and SREs can <strong>search the graph with a query language</strong>, and create <strong>alerting and clean-up workflows</strong>.</p>
+<p>Metrics can be aggregated and exported to a time series database like Prometheus.</p>
+<div class="section" id="is-cloudkeeper-the-tool-i-am-looking-for">
+<h3>Is Cloudkeeper the tool I am looking for?<a class="headerlink" href="#is-cloudkeeper-the-tool-i-am-looking-for" title="Permalink to this headline"></a></h3>
+<p>If you ever</p>
+<ul class="simple">
+<li><p>had a standstill in your CI pipeline because a broken job leaked cloud resources which triggered a <a class="reference internal" href="manual/query_library.html#ql-kind-quota"><span class="std std-ref">quota limit</span></a></p></li>
+<li><p>wanted to find all <a class="reference internal" href="manual/query_library.html#ql-kind-certificate"><span class="std std-ref">expired certificate</span></a></p></li>
+<li><p>had to <a class="reference internal" href="manual/action.html#action-tags"><span class="std std-ref">change the tags</span></a> of thousands of EC2 instances at once</p></li>
+<li><p>needed to delete all <a class="reference internal" href="manual/query_library.html#ql-kind-volume"><span class="std std-ref">unused EBS volumes</span></a> that had no I/O in the past month</p></li>
+<li><p>wished for a god view that lets you explore all cloud usage across all clouds</p></li>
+<li><p>reported the cost of a project across different accounts or even across clouds</p></li>
+<li><p>cleaned up <a class="reference internal" href="manual/query_library.html#ql-kind-aws-alb"><span class="std std-ref">orphaned load balancers</span></a> that had no active backends</p></li>
+<li><p>wanted to automate any of the above</p></li>
+</ul>
+<p>then you know the kind of situations Cloudkeeper was built for and you will love it.</p>
+</div>
+</div>
+<div class="section" id="supported-clouds-and-integrations">
+<h2>Supported Clouds and Integrations<a class="headerlink" href="#supported-clouds-and-integrations" title="Permalink to this headline"></a></h2>
+<p>Cloudkeeper collects data using simple plugins written in Python.</p>
+<p><strong>The following plugins are supplied at the moment:</strong></p>
+<ul class="simple">
+<li><p>AWS</p></li>
+<li><p>Google Cloud</p></li>
+<li><p>VMWare Vsphere</p></li>
+<li><p>OneLogin</p></li>
+<li><p>Kubernetes</p></li>
+<li><p>Slack</p></li>
+</ul>
+<p>The latter can also be used for notification of resource cleanups.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If the cloud or service you are using is not listed, it is easy to write your own collector plugin.</p>
+<p>Here is an <a class="reference external" href="https://github.com/someengineering/cloudkeeper/blob/main/plugins/example_collector">example plugin</a>.</p>
+</div>
+</div>
+<div class="section" id="get-in-touch">
+<h2>Get in touch<a class="headerlink" href="#get-in-touch" title="Permalink to this headline"></a></h2>
+<p>If you need support, have feedback, questions, plugins and everything else you can think of, don’t hesitate to join our Discord - We’re looking forward to talk!</p>
+<div class="line-block">
+<div class="line">Discord:</div>
+<div class="line"><a class="reference external" href="https://discord.gg/someengineering">https://discord.gg/someengineering</a></div>
+</div>
+<p>You found a bug, have ideas or a proposal? Head over to our GitHub issues:</p>
+<div class="line-block">
+<div class="line">GitHub Issues:</div>
+<div class="line"><a class="reference external" href="https://github.com/someengineering/cloudkeeper/issues/new">https://github.com/someengineering/cloudkeeper/issues/new</a></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contents.html" class="btn btn-neutral float-left" title="Cloudkeeper Docs contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started/quick_start.html" class="btn btn-neutral float-right" title="Quick start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Some Engineering Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-237E5P27RE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-237E5P27RE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

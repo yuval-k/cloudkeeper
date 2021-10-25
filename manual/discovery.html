@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discovery &mdash; Cloudkeeper v2.0.0a1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Spotlight: Graph Node" href="graph_node_spotlight.html" />
+    <link rel="prev" title="Access Permissions" href="../getting_started/access_permissions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+  <a href="../index.html" class="icon icon-home">
+  
+    <img src="../_static/SomeEngineering_Logo_m.png" class="logo" alt="Logo"/>
+  
+  Cloudkeeper
+
+</a>
+
+
+  
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quick_start.html#install-run-cloudkeeper">Install &amp; Run Cloudkeeper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#aws-credentials">AWS Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#run-cloudkeeper">Run Cloudkeeper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quick_start.html#start-the-cloudkeeper-cli">Start the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#collect-aws-inventory">Collect AWS Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#you-have-this-many-ressources">You have this many ressources!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quick_start.html#usage-of-the-cloudkeeper-cli">Usage of the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#how-to-access-help">How to access help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#list-your-resource-types">List your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#query-your-resource-types">Query your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#count-and-filter-your-resources">Count and filter your resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/quick_start.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/quick_start.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/setup_individual_components.html">Setup individual components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/setup_individual_components.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/setup_individual_components.html#prepare-your-environment">Prepare your environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#example-for-ckcore">Example for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#arangodb">ArangoDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#run">Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#prepare-graph-database-for-ckcore">Prepare graph database for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/setup_individual_components.html#install-cloudkeeper-components">Install Cloudkeeper components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#ckcore">ckcore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#install-ckcore">Install ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#run-ckcore">Run ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#securing-ckcore">Securing ckcore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#cksh">cksh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#install-cksh">Install cksh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#id2">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#run-cksh">Run cksh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#ckworker">ckworker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#install-ckworker">Install ckworker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#ckworker-plugins">ckworker plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#id3">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#run-ckworker">Run ckworker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#ckmetrics">ckmetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#install-ckmetrics">Install ckmetrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#id4">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started/setup_individual_components.html#run-ckmetrics">Run ckmetrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/setup_individual_components.html#optional-run-prometheus">(Optional) Run Prometheus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#id6">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/setup_individual_components.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/setup_individual_components.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/access_permissions.html">Access Permissions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/access_permissions.html#aws-permissions">AWS Permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/access_permissions.html#discovery-only">Discovery only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started/access_permissions.html#full-capabilities">Full capabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#graph-node">Graph Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="graph_node_spotlight.html">Spotlight: Graph Node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#available-commands">Available Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#query">query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reported">reported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#desired">desired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata">metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#selecting-nodes">Selecting Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-nodes-by-kind">Select nodes by kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-nodes-by-predicate">Select nodes by predicate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#property-path">property_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operation">operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#value">value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-predicates">Example predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#select-nodes-by-id">Select nodes by id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combine-selections">Combine selections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#graph-edges">Graph Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traversal-selectors">Traversal Selectors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inbound-and-outbound">Inbound and outbound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-all-direct-nodes-outbound-of-node">Select all direct nodes outbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-all-direct-nodes-inbound-of-node">Select all direct nodes inbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-nodes-that-include-the-current-node">Select nodes that include the current node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-nodes-with-a-defined-depth-in-the-graph">Select nodes with a defined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-nodes-with-an-undefined-depth-in-the-graph">Select nodes with an undefined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-inbound-and-outbound-nodes">Select inbound and outbound nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#abbreviations">Abbreviations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traversal-selection-commands">Traversal Selection Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ensuring-an-existing-defined-graph-structure">Ensuring an existing defined graph structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ensure-there-is-no-matching-node">Ensure there is no matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ensure-there-is-at-least-one-matching-node">Ensure there is at least one matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ensure-there-is-a-specific-count-of-matching-nodes">Ensure there is a specific count of matching nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregation-of-data">Aggregation of data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aggregation-example">Aggregation example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-of-an-aggregation-query-part">Syntax of an aggregation query part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-of-aggregation-functions">Examples of aggregation functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="action.html">Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="action.html#how-cloudkeeper-maintains-your-resources">How Cloudkeeper maintains your resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="action.html#workflows">Workflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="action.html#collect">collect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="action.html#cleanup">cleanup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="action.html#metrics">metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="action.html#collect-and-cleanup">collect_and_cleanup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="action.html#working-with-tags">Working with tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action.html#deleting-resources">Deleting resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="action.html#mark-resources-for-deletion">Mark resources for deletion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="action.html#delete-the-actual-ressources">Delete the actual ressources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query_library.html">Query library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query_library.html#by-kind">By kind</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="query_library.html#aws-alb">aws_alb</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query_library.html#orphaned-load-balancers-that-have-no-active-backend">Orphaned Load Balancers that have no active backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query_library.html#aws-iam-access-key">aws_iam_access_key</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query_library.html#number-of-active-access-keys-per-user">Number of active access keys per user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query_library.html#certificate">certificate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query_library.html#find-expired-ssl-certificates-currently-in-use">Find expired ssl certificates currently in use</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query_library.html#quota">quota</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query_library.html#find-current-quota-consumption-to-prevent-service-interruptions">Find current quota consumption to prevent service interruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="query_library.html#volume">volume</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="query_library.html#discover-unused-volumes">Discover unused volumes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query_library.html#query-missing">Query missing?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloudkeeper</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cloudkeeper/components/index.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckcore">ckcore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html">Spotlight: API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html#evaluate">Evaluate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html#execute">Execute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#cksh">cksh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckmetrics">ckmetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckworker">ckworker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#cklib">cklib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudkeeper/model.html">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#resource">Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#resource-hierarchy">Resource Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#kind-cli-command"><code class="docutils literal notranslate"><span class="pre">kind</span></code> CLI command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#complex-and-simple-kinds">Complex and simple kinds</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Cloudkeeper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Discovery</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/manual/discovery.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="discovery">
+<h1>Discovery<a class="headerlink" href="#discovery" title="Permalink to this headline"></a></h1>
+<p>You can search your cloud infrastructure and find the resources you are looking for using Cloudkeepers powerful query language.</p>
+<p>Cloudkeeper maintains its collected data in a graph database. This graph can be accessed via the query language.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Sending a query in the <a class="reference internal" href="../cloudkeeper/components/index.html#component-cksh"><span class="std std-ref">cksh</span></a> CLI is done by using the <code class="docutils literal notranslate"><span class="pre">query</span></code> command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_account)</span></code></p>
+</div>
+<p>Commands can be connected using a pipe to form complex and deep requests about resources, dependencies and connections in your infrastructure.</p>
+<p>To learn about your new superpowers and use them in the best way, it is important to understand the data model and structure.</p>
+<div class="section" id="graph-node">
+<span id="id1"></span><h2>Graph Node<a class="headerlink" href="#graph-node" title="Permalink to this headline"></a></h2>
+<p>A graph node is a json document with a well defined structure and these top level properties:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;kinds&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="o">...</span> <span class="p">],</span>
+  <span class="s2">&quot;reported&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+  <span class="s2">&quot;desired&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">},</span>
+  <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each graph node always has an <code class="docutils literal notranslate"><span class="pre">id</span></code> that is a unique id created by Cloudkeeper as well as a <code class="docutils literal notranslate"><span class="pre">kinds</span></code> array containing the kind of the node including all it’s parents kinds.</p>
+<p>It also features three main sections: <code class="docutils literal notranslate"><span class="pre">reported</span></code>, <code class="docutils literal notranslate"><span class="pre">desired</span></code> and <code class="docutils literal notranslate"><span class="pre">metadata</span></code>.</p>
+<p>You learn more about the structure and sections in our <a class="reference internal" href="graph_node_spotlight.html#graph-node-spotlight"><span class="std std-ref">Spotlight: Graph Node</span></a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="available-commands">
+<h2>Available Commands<a class="headerlink" href="#available-commands" title="Permalink to this headline"></a></h2>
+<p>In the <a class="reference internal" href="../cloudkeeper/components/index.html#component-cksh"><span class="std std-ref">cksh</span></a> CLI you have have a couple of commands available that help you accessing the graph database.</p>
+<p>Commands can also be chained by using <code class="docutils literal notranslate"><span class="pre">|</span></code> pipes - and not just the following commands!
+Chaining is very powerful when used with other commands like <code class="docutils literal notranslate"><span class="pre">count</span></code>.
+We advise to use <code class="docutils literal notranslate"><span class="pre">help</span></code> in the <a class="reference internal" href="../cloudkeeper/components/index.html#component-cksh"><span class="std std-ref">cksh</span></a> CLI to get more information about the commands.</p>
+<div class="section" id="query">
+<h3>query<a class="headerlink" href="#query" title="Permalink to this headline"></a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">query</span></code> command, you access the root level of the node.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">reported.kind</span> <span class="pre">==</span> <span class="pre">aws_region</span></code></p>
+<p>This will select all AWS regions</p>
+</div>
+</div>
+<div class="section" id="reported">
+<h3>reported<a class="headerlink" href="#reported" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">reported</span></code> will directly access the <code class="docutils literal notranslate"><span class="pre">reported</span></code> section of a graph_node.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">reported</span> <span class="pre">kind</span> <span class="pre">==</span> <span class="pre">aws_account</span></code></p>
+<p>This will select all AWS accounts</p>
+<p>You can also use the command <code class="docutils literal notranslate"><span class="pre">match</span></code> as an abbreviation for <code class="docutils literal notranslate"><span class="pre">reported</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">kind</span> <span class="pre">==</span> <span class="pre">aws_account</span></code></p>
+</div>
+</div>
+<div class="section" id="desired">
+<h3>desired<a class="headerlink" href="#desired" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">desired</span></code> will directly access the <code class="docutils literal notranslate"><span class="pre">desired</span></code> section of a graph node.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">desired</span> <span class="pre">clean</span> <span class="pre">=</span> <span class="pre">true</span></code></p>
+<p>This will select all graph nodes that are marked for cleanup</p>
+<p>You can also set properties in the <code class="docutils literal notranslate"><span class="pre">desired</span></code> section by using the <code class="docutils literal notranslate"><span class="pre">set_desired</span></code> command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">set_desired</span> <span class="pre">clean</span> <span class="pre">=</span> <span class="pre">false</span></code></p>
+<p>An example, selecting all graph nodes that are marked for cleanup and reversing this by chaining the two commands using a pipe:</p>
+<p><code class="docutils literal notranslate"><span class="pre">desired</span> <span class="pre">clean</span> <span class="pre">==</span> <span class="pre">true</span>&#160; <span class="pre">|</span> <span class="pre">set_desired</span> <span class="pre">clean</span> <span class="pre">=</span> <span class="pre">false</span></code></p>
+</div>
+</div>
+<div class="section" id="metadata">
+<h3>metadata<a class="headerlink" href="#metadata" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">metadata</span></code> will directely access the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> section of a graph node.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">metadata</span> <span class="pre">ancestors.cloud.name</span> <span class="pre">==</span> <span class="pre">aws</span></code></p>
+<p>This will select all graph nodes that are part of AWS clouds</p>
+<p>You can set metadata directly or add custom metadata by using the <code class="docutils literal notranslate"><span class="pre">set_metadata</span></code> command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">kind</span> <span class="pre">==</span> <span class="pre">aws_region</span> <span class="pre">|</span> <span class="pre">set_metadata</span> <span class="pre">foo</span> <span class="pre">=</span> <span class="pre">&quot;bar&quot;</span></code></p>
+<p>This will set the field <code class="docutils literal notranslate"><span class="pre">foo</span></code> to the value <code class="docutils literal notranslate"><span class="pre">bar</span></code> inside the graph nodes <code class="docutils literal notranslate"><span class="pre">metadata</span></code> section.</p>
+</div>
+<p>The following sections always assume the global level using the <code class="docutils literal notranslate"><span class="pre">query</span></code> command.</p>
+</div>
+</div>
+<div class="section" id="selecting-nodes">
+<h2>Selecting Nodes<a class="headerlink" href="#selecting-nodes" title="Permalink to this headline"></a></h2>
+<div class="section" id="select-nodes-by-kind">
+<h3>Select nodes by kind<a class="headerlink" href="#select-nodes-by-kind" title="Permalink to this headline"></a></h3>
+<p>Every node has a kind, which describes the structure of this node.
+The model supports inheritance: every specific type is also an instance of
+every more general type of this specific type.</p>
+<p>Take a graph node with a type of <code class="docutils literal notranslate"><span class="pre">aws_ec2_instance</span></code> as an example.
+This type is subtype of the types: <code class="docutils literal notranslate"><span class="pre">instance</span></code>, <code class="docutils literal notranslate"><span class="pre">aws_resource</span></code> and <code class="docutils literal notranslate"><span class="pre">resource</span></code>.</p>
+<p>In order to select nodes by a specific type, the query language supports the <code class="docutils literal notranslate"><span class="pre">is(kind)</span></code>
+function. The term <code class="docutils literal notranslate"><span class="pre">is(instance)</span></code> would select the ec2 instance above, but also all other
+instances, e.g. google cloud instances.</p>
+<p>The term <code class="docutils literal notranslate"><span class="pre">is(aws_ec2_instance)</span></code> would select only
+ec2 instances from aws.</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">is(kind)</span></code> does not belong to any section, it can be used on every level.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_ec2_instance)</span></code></p>
+<p>will select the same nodes as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">metadata</span> <span class="pre">is(aws_ec2_instance)</span></code></p>
+</div>
+</div>
+<div class="section" id="select-nodes-by-predicate">
+<h3>Select nodes by predicate<a class="headerlink" href="#select-nodes-by-predicate" title="Permalink to this headline"></a></h3>
+<p>In order to filter for specific attributes of a node, it is possible to define predicates.
+A predicate always has the syntax: <code class="docutils literal notranslate"><span class="pre">&lt;property_path&gt;</span> <span class="pre">&lt;operation&gt;</span> <span class="pre">&lt;value&gt;</span></code>.</p>
+<div class="section" id="property-path">
+<h4>property_path<a class="headerlink" href="#property-path" title="Permalink to this headline"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">property_path</span></code> is the path to the property in the json structure.
+A nested attribute is accessed via the <code class="docutils literal notranslate"><span class="pre">.</span></code>.</p>
+<p>To access the name in the reported section, one would write <code class="docutils literal notranslate"><span class="pre">reported.name</span></code>.</p>
+<p>A property inside an array is accessed via <code class="docutils literal notranslate"><span class="pre">[position]</span></code>.
+So to access the first element of an array we can write <code class="docutils literal notranslate"><span class="pre">[0]</span></code>.
+If the position is not known or does not matter we can write <code class="docutils literal notranslate"><span class="pre">[*]</span></code>.</p>
+</div>
+<div class="section" id="operation">
+<h4>operation<a class="headerlink" href="#operation" title="Permalink to this headline"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">operation</span></code> is one of the following options:</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">=</span></code> or <code class="docutils literal notranslate"><span class="pre">==</span></code> : Property is equal to the provided value.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">!=</span></code> : Property is not equal to the provided value.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> : Property is less than or equal to the provided value.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> : Property is greater than or equal to the provided value.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> : Property is greater than the provided value.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;</span></code> : Property is less than the provided value.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">~</span></code> or <code class="docutils literal notranslate"><span class="pre">=~</span></code> : Property conforms to the given regexp. Only applicable to strings.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">!~</span></code> : Property is not conform to the given regexp. Only applicable to strings.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">in</span></code> : Property is one of the following values. The value has to be an array.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> : Property is not one of the following values. The value has to be an array.</div>
+</div>
+</div>
+<div class="section" id="value">
+<h4>value<a class="headerlink" href="#value" title="Permalink to this headline"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> can be <em>any</em> json literal or <em>any</em> json conform value.</p>
+</div>
+<div class="section" id="example-predicates">
+<h4>Example predicates<a class="headerlink" href="#example-predicates" title="Permalink to this headline"></a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">reported.name</span> <span class="pre">==</span> <span class="pre">&quot;sunset&quot;</span></code></div>
+<div class="line">Select all nodes where reported.name is <em>exactly</em> the string “sunset”.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">reported.name</span> <span class="pre">==</span> <span class="pre">sunset</span></code></div>
+<div class="line">Same as above. <em>parentheses are optional as long as the string is not a number and does not have special characters</em>.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">reported.instance_cores</span> <span class="pre">&gt;</span> <span class="pre">2</span></code></div>
+<div class="line">Select nodes with more than 2 reported.instance_cores.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">reported.name</span> <span class="pre">=~</span> <span class="pre">&quot;sun.*&quot;</span></code></div>
+<div class="line">Selects all nodes where reported.name adheres to the regular expression <code class="docutils literal notranslate"><span class="pre">sun.*</span></code>.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">reported.name</span> <span class="pre">in</span> <span class="pre">[&quot;sunset&quot;,</span> <span class="pre">&quot;sunrise&quot;]</span></code></div>
+<div class="line">Selects all nodes where reported.name is either sunset or sunrise.</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="select-nodes-by-id">
+<h3>Select nodes by id<a class="headerlink" href="#select-nodes-by-id" title="Permalink to this headline"></a></h3>
+<p>Nodes can be selected by their id via the <cite>id(xyz)</cite> function.
+This function can be used globally no matter which section is used.</p>
+</div>
+<div class="section" id="combine-selections">
+<h3>Combine selections<a class="headerlink" href="#combine-selections" title="Permalink to this headline"></a></h3>
+<p>All listed selections can be combined with <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> clauses.
+In order to define precedence, it is possible to put brackets around terms.</p>
+<div class="admonition-examples-of-combined-terms admonition">
+<p class="admonition-title">Examples of combined terms</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">reported.name</span> <span class="pre">==</span> <span class="pre">sunset</span> <span class="pre">or</span> <span class="pre">reported.name</span> <span class="pre">==</span> <span class="pre">sunrise</span></code> : Select nodes where reported.name is either sunrise or sunset.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_ec2_instance)</span> <span class="pre">and</span> <span class="pre">reported.name==sunrise</span></code> : Select aws_ec2_instance nodes where reported.name is sunrise.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_ec2_instance)</span> <span class="pre">and</span> <span class="pre">(reported.instance_type==&quot;m5a.large&quot;</span> <span class="pre">or</span> <span class="pre">reported.instance_cores&gt;2)</span></code> : Select aws_ec2_instance nodes of specific type or more than 2 cores.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="graph-edges">
+<h2>Graph Edges<a class="headerlink" href="#graph-edges" title="Permalink to this headline"></a></h2>
+<p>Nodes in the graph are connected via edges.
+Edges in the graph are directed, starting from a node pointing to a node.
+In order to traverse the graph in a meaningful way,
+it is important to understand the structure of the graph.
+The following model is only a subset of the graph model you will find in Cloudkeeper, but
+illustrates nicely how we can walk edges in the graph.</p>
+<img alt="Edge Data Model" src="../_images/graph_query_graph_edges.png" />
+<p>All of the resources in aws are placed in a region.
+The region is one node in the graph.
+If we want to know all resources in the graph we need to walk <em>outbound</em> (following the edges in direction of the arrow).
+If we want to know the account of a specific resource, we need to walk <em>inbound</em> (following the edge in reverse direction of the arrow)
+in the graph until we find an account.</p>
+</div>
+<div class="section" id="traversal-selectors">
+<h2>Traversal Selectors<a class="headerlink" href="#traversal-selectors" title="Permalink to this headline"></a></h2>
+<div class="section" id="inbound-and-outbound">
+<h3>Inbound and outbound<a class="headerlink" href="#inbound-and-outbound" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;--</span></code> traverses the graph inbound, <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> traverses the graph outbound.</p>
+<img alt="../_images/graph_query_inout.png" src="../_images/graph_query_inout.png" />
+</div>
+<div class="section" id="select-all-direct-nodes-outbound-of-node">
+<h3>Select all direct nodes outbound of node<a class="headerlink" href="#select-all-direct-nodes-outbound-of-node" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> traverse the graph outbound to the next level.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_account)</span> <span class="pre">--&gt;</span></code></p>
+<p>This will select all aws accounts and then traverse in the graph outbound.
+According to the model above, this query would return a list of all matching regions.</p>
+<img alt="../_images/graph_query_outbound_example.png" src="../_images/graph_query_outbound_example.png" />
+</div>
+</div>
+<div class="section" id="select-all-direct-nodes-inbound-of-node">
+<h3>Select all direct nodes inbound of node<a class="headerlink" href="#select-all-direct-nodes-inbound-of-node" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;--</span></code> traverse the graph inbound to the next level</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_ec2_instance)</span> <span class="pre">&lt;--</span> <span class="pre">is(aws_region)</span></code></p>
+<p>This will select all aws ec2 instances in the database and then traverse in the graph inbound.
+According to the model above, this query would return a list of all matching regions and instance profiles.
+For the sake of this example, we want to filter this list even further to only return the aws regions of the ec2 instances.</p>
+<img alt="../_images/graph_query_inbound_example.png" src="../_images/graph_query_inbound_example.png" />
+</div>
+</div>
+<div class="section" id="select-nodes-that-include-the-current-node">
+<h3>Select nodes that include the current node<a class="headerlink" href="#select-nodes-that-include-the-current-node" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">-[0:1]-&gt;</span></code> traverse the graph outbound starting from the current node <strong>(0)</strong> until the next level <strong>(1)</strong>.
+The result will contain the current node plus all nodes one level outbound.
+The same applies for inbound  with this statement <code class="docutils literal notranslate"><span class="pre">&lt;-[0:1]-</span></code>.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">-[0:1]-&gt;</span></code></p>
+<p>This will return a list of all resources “under” a aws_region together with the matching aws_region.</p>
+<img alt="../_images/graph_query_01.png" src="../_images/graph_query_01.png" />
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">and</span> <span class="pre">reported.name==global</span> <span class="pre">&lt;-[0:1]-</span></code></p>
+<p>This will return a list of all aws_regions with name <code class="docutils literal notranslate"><span class="pre">global</span></code> together with all accounts.</p>
+</div>
+</div>
+<div class="section" id="select-nodes-with-a-defined-depth-in-the-graph">
+<h3>Select nodes with a defined depth in the graph<a class="headerlink" href="#select-nodes-with-a-defined-depth-in-the-graph" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">-[start:until]-&gt;</span></code> traverses the graph outbound starting from a user defined depth to a user defined depth.
+The graph will be traversed from the current node according to this specification. All matching nodes will be returned.
+The same applies for inbound traversals with <code class="docutils literal notranslate"><span class="pre">&lt;-[start:until]-</span></code>.</p>
+<img alt="../_images/graph_query_startuntil.png" src="../_images/graph_query_startuntil.png" />
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_alb_target_groups)</span> <span class="pre">&lt;-[2:2]-</span> <span class="pre">is(aws_iam_instance_profile)</span></code></p>
+<p>This query can answer the question: which instance profile is used for ec2 instances connected to an alb target group.
+It selects all aws_alb_target_groups and than traverses 2 levels inbound in the graph and filters for aws_iam_instance_profiles.
+The result is a list of aws_iam_instance_profiles.</p>
+</div>
+</div>
+<div class="section" id="select-nodes-with-an-undefined-depth-in-the-graph">
+<h3>Select nodes with an undefined depth in the graph<a class="headerlink" href="#select-nodes-with-an-undefined-depth-in-the-graph" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">-[start:]-&gt;</span></code> traverses the graph outbound starting from a user defined depth to the leafs of the graph.
+The graph will be traversed from the current node according to this specification. All matching nodes will be returned.
+The same applies for inbound traversals with <code class="docutils literal notranslate"><span class="pre">&lt;-[start:]-</span></code>.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_account)</span> <span class="pre">and</span> <span class="pre">reported.name==sunshine</span> <span class="pre">-[0:]-&gt;</span></code></p>
+<p>This query will select the aws account with name <code class="docutils literal notranslate"><span class="pre">sunshine</span></code> and then select all nodes outbound to this node.
+This will select everything Cloudkeeper knows about nodes in this account.</p>
+</div>
+</div>
+<div class="section" id="select-inbound-and-outbound-nodes">
+<h3>Select inbound and outbound nodes<a class="headerlink" href="#select-inbound-and-outbound-nodes" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;-[start:until]-&gt;</span></code> traverses the graph inbound and outbound starting from a user defined depth to a user defined depth.
+The graph will be traversed from the current node according to this specification. All matching nodes will be returned.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">reported.name=&quot;sunset&quot;</span> <span class="pre">and</span> <span class="pre">is(aws_account)</span> <span class="pre">&lt;-[0:]-&gt;</span></code></p>
+<p>This will select all nodes that are connected on any depth in any way to the AWS account with the name sunset.</p>
+</div>
+</div>
+<div class="section" id="abbreviations">
+<h3>Abbreviations<a class="headerlink" href="#abbreviations" title="Permalink to this headline"></a></h3>
+<p>There are abbreviations for the most common traversal selectors.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;--</span></code> are abbreviations to <code class="docutils literal notranslate"><span class="pre">-[1:1]-&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;-[1:1]-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_account)</span> <span class="pre">--&gt;</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_account)</span> <span class="pre">-[1:1]-&gt;</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;--&gt;</span></code> is an abbreviation for <code class="docutils literal notranslate"><span class="pre">&lt;-[1:1]-&gt;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">&lt;--&gt;</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">&lt;-[1:1]-&gt;</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&lt;-[x]-</span></code> is an abbreviation for <code class="docutils literal notranslate"><span class="pre">&lt;-[x:x]-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">&lt;-[3]-&gt;</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">&lt;-[3:3]-&gt;</span></code></div>
+</div>
+</div>
+</div>
+<div class="section" id="traversal-selection-commands">
+<h3>Traversal Selection Commands<a class="headerlink" href="#traversal-selection-commands" title="Permalink to this headline"></a></h3>
+<p>There are also commands doing a traversal selection that you can chain using a pipe.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">predecessors</span></code> is a command being substituted for <code class="docutils literal notranslate"><span class="pre">&lt;--</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;-[1:1]-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">|</span> <span class="pre">predecessors</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">&lt;--</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">successors</span></code> is a command being substituted for <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code> / <code class="docutils literal notranslate"><span class="pre">-[1:1]-&gt;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">|</span> <span class="pre">successors</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">--&gt;</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ancestors</span></code> is a command being substituted for <code class="docutils literal notranslate"><span class="pre">&lt;-[1:]-</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">|</span> <span class="pre">ancestors</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">&lt;-[1:]-</span></code></div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descendants</span></code> is a command being substituted for <code class="docutils literal notranslate"><span class="pre">-[1:]-&gt;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">|</span> <span class="pre">descendants</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">is(aws_region)</span> <span class="pre">-[1:]-&gt;</span></code></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ensuring-an-existing-defined-graph-structure">
+<h2>Ensuring an existing defined graph structure<a class="headerlink" href="#ensuring-an-existing-defined-graph-structure" title="Permalink to this headline"></a></h2>
+<p>There are certain scenarios, where nodes need to be selected that have defined relationships and position in the
+graph without selecting the related nodes.</p>
+<p>Example: We want to select all ALB target groups where there is no EC2 instance using the ALB.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="ow">is</span><span class="p">(</span><span class="n">aws_alb_target_group</span><span class="p">)</span> <span class="k">with</span> <span class="p">(</span><span class="n">empty</span><span class="p">,</span> <span class="o">&lt;--</span> <span class="ow">is</span><span class="p">(</span><span class="n">aws_ec2_instance</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">is(aws_alb_target_group)</span></code> part selects all aws_alb_target_groups.
+The <code class="docutils literal notranslate"><span class="pre">with</span></code> part filters this list by ensuring a defined graph structure.
+The defined graph structure is described by <code class="docutils literal notranslate"><span class="pre">(empty,</span> <span class="pre">&lt;--</span> <span class="pre">is(aws_ec2_instance))</span></code> and says:</p>
+<ul class="simple">
+<li><p>traverse the graph inbound and filter all aws_ec2_instances</p></li>
+<li><p>count the resulting nodes</p></li>
+<li><p>select the aws_alb_target_group if there are no resulting nodes for this node</p></li>
+<li><p>the result will not have any data from the graph traversal of the with clause</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">with</span></code> clause allows for the following forms:</p>
+<div class="section" id="ensure-there-is-no-matching-node">
+<h3>Ensure there is no matching node<a class="headerlink" href="#ensure-there-is-no-matching-node" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;filter&gt;</span> <span class="pre">with</span> <span class="pre">(empty,</span> <span class="pre">&lt;navigation&gt;</span> <span class="pre">[filter])</span></code></p>
+<p>The filter will select elements. With every element a graph traversal is done
+following the navigation and filter in the with clause.
+No result is allowed in order to select the node.</p>
+</div>
+<div class="section" id="ensure-there-is-at-least-one-matching-node">
+<h3>Ensure there is at least one matching node<a class="headerlink" href="#ensure-there-is-at-least-one-matching-node" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;filter&gt;</span> <span class="pre">with</span> <span class="pre">(any,</span> <span class="pre">&lt;navigation&gt;</span> <span class="pre">[filter])</span></code></p>
+<p>Same as the <code class="docutils literal notranslate"><span class="pre">empty</span></code> case with the difference: the with clause needs to select
+at least one matching node in order to select the filtered node.</p>
+</div>
+<div class="section" id="ensure-there-is-a-specific-count-of-matching-nodes">
+<h3>Ensure there is a specific count of matching nodes<a class="headerlink" href="#ensure-there-is-a-specific-count-of-matching-nodes" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;filter&gt;</span> <span class="pre">with</span> <span class="pre">(count==3,</span> <span class="pre">&lt;navigation&gt;</span> <span class="pre">[filter])</span></code></p>
+<p>Same as the <code class="docutils literal notranslate"><span class="pre">empty</span></code> case with the difference: the with clause needs to select
+the specified amount of matching nodes in order to select the filtered node.</p>
+<p>Please note: the with clause can be nested.
+Inside a with clause, you can use another with clause for nested expectations.
+The outermost element is filtered only if the outermost with clause holds,
+which includes that all inner with clauses have to match as well.</p>
+<p>This is a powerful construct to define queries to match a defined graph structure or
+to select nodes which are not in a predefined graph structure.</p>
+</div>
+</div>
+<div class="section" id="aggregation-of-data">
+<h2>Aggregation of data<a class="headerlink" href="#aggregation-of-data" title="Permalink to this headline"></a></h2>
+<p>There are several situations where specific data is not too relevant but needs lifting to a higher level. That is where aggregation comes into play.</p>
+<p>Aggregation allows to group entities by one or more properties and then do math operations on that group.</p>
+<div class="section" id="aggregation-example">
+<h3>Aggregation example<a class="headerlink" href="#aggregation-example" title="Permalink to this headline"></a></h3>
+<p>Let’s look at an example to understand the concept better.</p>
+<p>For the sake of this example, consider this query:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">query</span> <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="ow">and</span> <span class="n">reported</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>This will select all compute instances in my cloud, that are older than 3 years.</p>
+<p>If I only want to know the number of instances, that matches that criteria, I could write this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">):</span> <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="ow">and</span> <span class="n">reported</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="n">y</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>which would return the total number of all compute instances that are older than 3 years.</p>
+<div class="line-block">
+<div class="line">You can see the <code class="docutils literal notranslate"><span class="pre">aggregate():</span></code> part in front of the filter query part.</div>
+<div class="line">The query part itself has not changed - the aggregation part tells Cloudkeeper to aggregate the resulting data based on the defined criteria.</div>
+</div>
+<div class="line-block">
+<div class="line">Every resulting element of the filter query is passed to the aggregation function.</div>
+<div class="line">This function can aggregate data from the incoming element using on of <code class="docutils literal notranslate"><span class="pre">sum(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">min(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">max(x)</span></code> or <code class="docutils literal notranslate"><span class="pre">avg(x)</span></code>.</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This criteria in this case is <code class="docutils literal notranslate"><span class="pre">sum(1)</span> <span class="pre">as</span> <span class="pre">count</span></code>, which uses the static value <code class="docutils literal notranslate"><span class="pre">1</span></code> for every element passed and then sums it up.</p>
+<p>Since every element counts as <code class="docutils literal notranslate"><span class="pre">1</span></code> - <code class="docutils literal notranslate"><span class="pre">sum(1)</span></code> is basically the number of elements passed.</p>
+<p>Please note, that the variable to sum does not need to be a static value, but could come from the element passed to this function.</p>
+</div>
+<p>If we would like to know the number of CPU cores, we could rewrite the aggregation like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">,</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="n">reported</span><span class="o">.</span><span class="n">instance_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">cores</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="ow">and</span> <span class="n">reported</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="n">y</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">20</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">62</span>
+</pre></div>
+</div>
+<p>In addition to the instance count, we also get the total number of instance cores in the system.</p>
+<div class="line-block">
+<div class="line">All of the above aggregations do not use any grouping information.</div>
+<div class="line">Grouping can be a powerful feature, since it allows to make the defined computation on separate groups.</div>
+</div>
+<p>Let’s assume we want to know the number of instances and cores for compute instances, grouped by its instance status:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+    <span class="n">reported</span><span class="o">.</span><span class="n">instance_status</span> <span class="k">as</span> <span class="n">status</span><span class="p">:</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">reported</span><span class="o">.</span><span class="n">instance_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">cores</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="ow">and</span> <span class="n">reported</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="n">y</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">stopped</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">15</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">51</span>
+<span class="o">---</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">terminated</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">11</span>
+</pre></div>
+</div>
+<p>The query is the same and the aggregation functions are the same.</p>
+<p>The only addition here is the aggregation group: <code class="docutils literal notranslate"><span class="pre">reported.instance_status</span></code>, which is defined by every compute instance.
+The result of this addition: the computation is performed on every matching subgroup.</p>
+<p>Each group is identified by the value of the grouping variable.
+Every compute instance is put into one subgroup by its reported <code class="docutils literal notranslate"><span class="pre">instance_status</span></code> property.</p>
+<p>We can see that there are 15 stopped and 5 terminated instances, with the related number of cores.
+It is totally possible to group by more than one variable.</p>
+<p>Let’s also use the instance_type as an additional group variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+    <span class="n">reported</span><span class="o">.</span><span class="n">instance_status</span> <span class="k">as</span> <span class="n">status</span><span class="p">,</span>
+    <span class="n">reported</span><span class="o">.</span><span class="n">instance_type</span> <span class="k">as</span> <span class="nb">type</span><span class="p">:</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">,</span>
+    <span class="nb">sum</span><span class="p">(</span><span class="n">reported</span><span class="o">.</span><span class="n">instance_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">cores</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span> <span class="ow">and</span> <span class="n">reported</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="n">y</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">stopped</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">m5</span><span class="o">.</span><span class="n">xlarge</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">12</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">48</span>
+<span class="o">---</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">stopped</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">t2</span><span class="o">.</span><span class="n">micro</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">3</span>
+<span class="o">---</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">terminated</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">n1</span><span class="o">-</span><span class="n">standard</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">1</span>
+<span class="o">---</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">terminated</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">n1</span><span class="o">-</span><span class="n">standard</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">6</span>
+<span class="o">---</span>
+<span class="n">group</span><span class="p">:</span>
+  <span class="n">status</span><span class="p">:</span> <span class="n">terminated</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">n1</span><span class="o">-</span><span class="n">standard</span><span class="o">-</span><span class="mi">4</span>
+<span class="n">count</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">cores</span><span class="p">:</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="syntax-of-an-aggregation-query-part">
+<h3>Syntax of an aggregation query part<a class="headerlink" href="#syntax-of-an-aggregation-query-part" title="Permalink to this headline"></a></h3>
+<p>General structure of every aggregation query:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aggregate</span><span class="p">([</span><span class="n">grouping_part</span><span class="p">:]</span> <span class="p">[</span><span class="n">function_part</span><span class="p">]):</span> <span class="p">[</span><span class="n">query</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The grouping part is optional and could be omitted.</div>
+<div class="line">All grouping variables are separated by comma.</div>
+<div class="line">Every grouping variable can have an <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">&lt;name&gt;</span></code> clause to give the variable a specific name: <code class="docutils literal notranslate"><span class="pre">&lt;path_to_prop&gt;</span> <span class="pre">as</span> <span class="pre">&lt;name&gt;</span></code>.</div>
+<div class="line">If the <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">&lt;name&gt;</span></code> clause is omitted, a name is derived from the property path.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">property1</span> <span class="k">as</span> <span class="n">p1</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">property2</span> <span class="k">as</span> <span class="n">p2</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The grouping function part is mandatory with this syntax: <code class="docutils literal notranslate"><span class="pre">&lt;function&gt;(..)</span></code>.</div>
+<div class="line">Every grouping function can have an <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">&lt;name&gt;</span></code> clause to give the function result a specific name: <code class="docutils literal notranslate"><span class="pre">&lt;function&gt;(..)</span> <span class="pre">as</span> <span class="pre">&lt;name&gt;</span></code>.</div>
+<div class="line">If the <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">&lt;name&gt;</span></code> clause is omitted, a name is derived from the function name and property path.</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp1</span><span class="p">,</span> <span class="n">avg</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">to</span><span class="o">.</span><span class="n">property</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp2</span>
+</pre></div>
+</div>
+<p>Following functions are supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sum(x)</span></code> Sum x over all incoming elements. x can be a static value or the path to a property.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min(x)</span></code> Return the smallest seen x over all incoming elements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max(x)</span></code> Return the biggest seen x over all incoming elements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">avg(x)</span></code> Compute the average over all x.</p></li>
+</ul>
+</div>
+<div class="section" id="examples-of-aggregation-functions">
+<h3>Examples of aggregation functions<a class="headerlink" href="#examples-of-aggregation-functions" title="Permalink to this headline"></a></h3>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Count all instances in the system</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Count all instances and instance cores in the system</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">,</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="n">instance_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">cores</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Same as before, but group all instances by status</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+  <span class="n">instance_status</span> <span class="k">as</span> <span class="n">status</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">,</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="n">instance_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">cores</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Same as before, but group all instances by status and type</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="n">aggregate</span><span class="p">(</span>
+  <span class="n">instance_status</span> <span class="k">as</span> <span class="n">status</span><span class="p">,</span>
+  <span class="n">instance_type</span> <span class="k">as</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">count</span><span class="p">,</span>
+  <span class="nb">sum</span><span class="p">(</span><span class="n">instance_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">cores</span><span class="p">):</span>
+  <span class="ow">is</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../getting_started/access_permissions.html" class="btn btn-neutral float-left" title="Access Permissions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="graph_node_spotlight.html" class="btn btn-neutral float-right" title="Spotlight: Graph Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Some Engineering Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-237E5P27RE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-237E5P27RE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

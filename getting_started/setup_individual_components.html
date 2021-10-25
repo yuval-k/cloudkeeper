@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup individual components &mdash; Cloudkeeper v2.0.0a1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Access Permissions" href="access_permissions.html" />
+    <link rel="prev" title="Quick start" href="quick_start.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+  <a href="../index.html" class="icon icon-home">
+  
+    <img src="../_static/SomeEngineering_Logo_m.png" class="logo" alt="Logo"/>
+  
+  Cloudkeeper
+
+</a>
+
+
+  
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#install-run-cloudkeeper">Install &amp; Run Cloudkeeper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#aws-credentials">AWS Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#run-cloudkeeper">Run Cloudkeeper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#start-the-cloudkeeper-cli">Start the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#collect-aws-inventory">Collect AWS Inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#you-have-this-many-ressources">You have this many ressources!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#usage-of-the-cloudkeeper-cli">Usage of the Cloudkeeper CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#how-to-access-help">How to access help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#list-your-resource-types">List your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#query-your-resource-types">Query your resource types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#count-and-filter-your-resources">Count and filter your resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup individual components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-your-environment">Prepare your environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-for-ckcore">Example for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#arangodb">ArangoDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#run">Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-graph-database-for-ckcore">Prepare graph database for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cloudkeeper-components">Install Cloudkeeper components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ckcore">ckcore</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-ckcore">Install ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-ckcore">Run ckcore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#securing-ckcore">Securing ckcore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cksh">cksh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-cksh">Install cksh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-cksh">Run cksh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ckworker">ckworker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-ckworker">Install ckworker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ckworker-plugins">ckworker plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-ckworker">Run ckworker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ckmetrics">ckmetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-ckmetrics">Install ckmetrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-ckmetrics">Run ckmetrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-run-prometheus">(Optional) Run Prometheus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#you-made-it">You made it!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-now">What now?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-you-get-more-assistance">How you get more assistance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="access_permissions.html">Access Permissions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="access_permissions.html#aws-permissions">AWS Permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="access_permissions.html#discovery-only">Discovery only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access_permissions.html#full-capabilities">Full capabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/discovery.html">Discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#graph-node">Graph Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/graph_node_spotlight.html">Spotlight: Graph Node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#available-commands">Available Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#query">query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#reported">reported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#desired">desired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#metadata">metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#selecting-nodes">Selecting Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-by-kind">Select nodes by kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-by-predicate">Select nodes by predicate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#property-path">property_path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#operation">operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#value">value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/discovery.html#example-predicates">Example predicates</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-by-id">Select nodes by id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#combine-selections">Combine selections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#graph-edges">Graph Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#traversal-selectors">Traversal Selectors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#inbound-and-outbound">Inbound and outbound</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-all-direct-nodes-outbound-of-node">Select all direct nodes outbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-all-direct-nodes-inbound-of-node">Select all direct nodes inbound of node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-that-include-the-current-node">Select nodes that include the current node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-with-a-defined-depth-in-the-graph">Select nodes with a defined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-nodes-with-an-undefined-depth-in-the-graph">Select nodes with an undefined depth in the graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#select-inbound-and-outbound-nodes">Select inbound and outbound nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#abbreviations">Abbreviations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#traversal-selection-commands">Traversal Selection Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#ensuring-an-existing-defined-graph-structure">Ensuring an existing defined graph structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#ensure-there-is-no-matching-node">Ensure there is no matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#ensure-there-is-at-least-one-matching-node">Ensure there is at least one matching node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#ensure-there-is-a-specific-count-of-matching-nodes">Ensure there is a specific count of matching nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/discovery.html#aggregation-of-data">Aggregation of data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#aggregation-example">Aggregation example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#syntax-of-an-aggregation-query-part">Syntax of an aggregation query part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/discovery.html#examples-of-aggregation-functions">Examples of aggregation functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/action.html">Action</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/action.html#how-cloudkeeper-maintains-your-resources">How Cloudkeeper maintains your resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/action.html#workflows">Workflows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#collect">collect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#cleanup">cleanup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#metrics">metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manual/action.html#collect-and-cleanup">collect_and_cleanup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/action.html#working-with-tags">Working with tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/action.html#deleting-resources">Deleting resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/action.html#mark-resources-for-deletion">Mark resources for deletion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/action.html#delete-the-actual-ressources">Delete the actual ressources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/query_library.html">Query library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/query_library.html#by-kind">By kind</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#aws-alb">aws_alb</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#orphaned-load-balancers-that-have-no-active-backend">Orphaned Load Balancers that have no active backend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#aws-iam-access-key">aws_iam_access_key</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#number-of-active-access-keys-per-user">Number of active access keys per user</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#certificate">certificate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#find-expired-ssl-certificates-currently-in-use">Find expired ssl certificates currently in use</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#quota">quota</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#find-current-quota-consumption-to-prevent-service-interruptions">Find current quota consumption to prevent service interruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../manual/query_library.html#volume">volume</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../manual/query_library.html#discover-unused-volumes">Discover unused volumes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/query_library.html#query-missing">Query missing?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloudkeeper</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cloudkeeper/components/index.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckcore">ckcore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html">Spotlight: API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html#evaluate">Evaluate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cloudkeeper/components/ckcore_spotlight.html#execute">Execute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#cksh">cksh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckmetrics">ckmetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#ckworker">ckworker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/components/index.html#cklib">cklib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudkeeper/model.html">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#resource">Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#resource-hierarchy">Resource Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#kind-cli-command"><code class="docutils literal notranslate"><span class="pre">kind</span></code> CLI command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloudkeeper/model.html#complex-and-simple-kinds">Complex and simple kinds</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Cloudkeeper</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Setup individual components</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting_started/setup_individual_components.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="setup-individual-components">
+<h1>Setup individual components<a class="headerlink" href="#setup-individual-components" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="quick_start.html#quickstart"><span class="std std-ref">Quick start</span></a> guide used our Docker image. This tutorial will set up the individual components that make up a Cloudkeeper environment.</p>
+<dl class="simple">
+<dt>In this setup guide we’re showing you three things:</dt><dd><ol class="arabic simple">
+<li><p>how to prepare your environment</p></li>
+<li><p>how to install each cloudkeeper component</p></li>
+<li><p>how to run &amp; access each component</p></li>
+</ol>
+</dd>
+</dl>
+<p>All the installation will take place in your home directory <code class="docutils literal notranslate"><span class="pre">~/cloudkeeper/</span></code>. Choose a different <code class="docutils literal notranslate"><span class="pre">INSTALL_PREFIX</span></code> below if you prefer another location.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<p>Python &gt;= 3.9 is required for all Cloudkeeper components. ArangoDB &gt;= 3.8.1 is used as the <code class="docutils literal notranslate"><span class="pre">ckcore</span></code> graph storage.
+Optionally the Cloudkeeper Metrics Exporter <code class="docutils literal notranslate"><span class="pre">ckmetrics</span></code> can be installed and its metrics pulled by the Prometheus time series database.
+This guide uses <code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span></code> to download components.</p>
+<p>The component set-up takes 20 minutes. The duration of the first collect process depends on the size of your environment - usually 5-10 minutes.</p>
+<p>To start filling the Cloudkeeper graph with resource data you will need AWS credentials with proper permissions.</p>
+<p>You can look up specific permission configurations in your <a class="reference internal" href="access_permissions.html#access-permissions"><span class="std std-ref">Access Permissions</span></a> section.</p>
+<p>We assume you have done our <a class="reference internal" href="quick_start.html#quickstart"><span class="std std-ref">Quick start</span></a>.</p>
+</div>
+<div class="section" id="prepare-your-environment">
+<h2>Prepare your environment<a class="headerlink" href="#prepare-your-environment" title="Permalink to this headline"></a></h2>
+<div class="section" id="configuration">
+<span id="configuration-environment"></span><h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
+<p>Every Cloudkeeper component can be configured via environment variables instead of commandline arguments.
+In this section we will prepare all configuration required.
+Each component has its own prefix.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../cloudkeeper/components/index.html#component-ckcore"><span class="std std-ref">ckcore</span></a>: <code class="docutils literal notranslate"><span class="pre">CKCORE_</span></code></p></li>
+<li><p><a class="reference internal" href="../cloudkeeper/components/index.html#component-ckworker"><span class="std std-ref">ckworker</span></a>: <code class="docutils literal notranslate"><span class="pre">CKWORKER_</span></code></p></li>
+<li><p><a class="reference internal" href="../cloudkeeper/components/index.html#component-ckmetrics"><span class="std std-ref">ckmetrics</span></a>: <code class="docutils literal notranslate"><span class="pre">CKMETRICS_</span></code></p></li>
+<li><p><a class="reference internal" href="../cloudkeeper/components/index.html#component-cksh"><span class="std std-ref">cksh</span></a>: <code class="docutils literal notranslate"><span class="pre">CKSH_</span></code></p></li>
+</ul>
+<div class="section" id="example-for-ckcore">
+<h4>Example for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code><a class="headerlink" href="#example-for-ckcore" title="Permalink to this headline"></a></h4>
+<p>ENV Prefix: <code class="docutils literal notranslate"><span class="pre">CKCORE_</span></code></p>
+<p>Every CLI arg can also be specified using ENV variables.</p>
+<p>For instance <code class="docutils literal notranslate"><span class="pre">--graphdb-server</span> <span class="pre">http://foobar.tld:8529</span></code> would become <code class="docutils literal notranslate"><span class="pre">CKCORE_GRAPHDB_SERVER=http://foobar.tld:8529</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Prepare the environment</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">INSTALL_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/cloudkeeper&quot;</span>
+
+<span class="c1"># Create a new Python 3.9 virtual environment</span>
+mkdir -p <span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">&quot;</span>
+<span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">&quot;</span>
+python3.9 -m venv venv
+<span class="nb">source</span> venv/bin/activate
+
+
+<span class="c1"># Download and extract ArangoDB</span>
+<span class="nv">ARANGODB_VERSION</span><span class="o">=</span><span class="m">3</span>.8.1
+<span class="nv">ARANGODB_LINUX_DOWNLOAD_URL</span><span class="o">=</span><span class="s2">&quot;https://download.arangodb.com/arangodb38/Community/Linux/arangodb3-linux-</span><span class="si">${</span><span class="nv">ARANGODB_VERSION</span><span class="si">}</span><span class="s2">.tar.gz&quot;</span>
+<span class="nv">ARANGODB_MACOS_DOWNLOAD_URL</span><span class="o">=</span><span class="s2">&quot;https://download.arangodb.com/arangodb38/Community/MacOSX/arangodb3-macos-</span><span class="si">${</span><span class="nv">ARANGODB_VERSION</span><span class="si">}</span><span class="s2">.tar.gz&quot;</span>
+<span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">=</span> Linux <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">ARANGODB_DOWNLOAD_URL</span><span class="o">=</span><span class="nv">$ARANGODB_LINUX_DOWNLOAD_URL</span> <span class="o">||</span> <span class="nv">ARANGODB_DOWNLOAD_URL</span><span class="o">=</span><span class="nv">$ARANGODB_MACOS_DOWNLOAD_URL</span>
+<span class="nv">GRAPHDB_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">/db&quot;</span>                <span class="c1">#&lt;-- directory to store ArangoDB</span>
+<span class="nv">GRAPHDB_DATABASE_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">/data/db&quot;</span>  <span class="c1">#&lt;-- directory to store ArangoDB data</span>
+<span class="nv">GRAPHDB_SERVER_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;tcp://127.0.0.1:8529&quot;</span>        <span class="c1">#&lt;-- IP:port for ArangoDB to listen on</span>
+<span class="nv">GRAPHDB_ROOT_PASSWORD</span><span class="o">=</span><span class="s2">&quot;changeme&quot;</span>                      <span class="c1">#&lt;-- ArangoDB root password</span>
+
+<span class="c1"># Download and extract ArangoDB</span>
+mkdir -p <span class="s2">&quot;</span><span class="nv">$GRAPHDB_DIRECTORY</span><span class="s2">&quot;</span>                         <span class="c1">#&lt;-- directory to store ArangoDB</span>
+mkdir -p <span class="s2">&quot;</span><span class="nv">$GRAPHDB_DATABASE_DIRECTORY</span><span class="s2">&quot;</span>                <span class="c1">#&lt;-- create data directory for ArangoDB</span>
+curl -L -o /tmp/arangodb.tar.gz <span class="s2">&quot;</span><span class="nv">$ARANGODB_DOWNLOAD_URL</span><span class="s2">&quot;</span>
+tar xzvf /tmp/arangodb.tar.gz --strip-components<span class="o">=</span><span class="m">1</span> -C <span class="s2">&quot;</span><span class="nv">$GRAPHDB_DIRECTORY</span><span class="s2">&quot;</span>
+rm -f /tmp/arangodb.tar.gz
+
+<span class="nv">CKCORE_GRAPHDB_LOGIN</span><span class="o">=</span><span class="s2">&quot;cloudkeeper&quot;</span>             <span class="c1">#&lt;-- user for ArangoDB database</span>
+<span class="nv">CKCORE_GRAPHDB_PASSWORD</span><span class="o">=</span><span class="s2">&quot;changeme&quot;</span>             <span class="c1">#&lt;-- password for ArangoDB user</span>
+<span class="nv">CKCORE_GRAPHDB_DATABASE</span><span class="o">=</span><span class="s2">&quot;cloudkeeper&quot;</span>          <span class="c1">#&lt;-- database name in ArangoDB</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Optional download and install <a class="reference internal" href="#prometheus"><span class="std std-ref">(Optional) Run Prometheus</span></a></span><a class="headerlink" href="#id8" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PROMETHEUS_VERSION</span><span class="o">=</span><span class="m">2</span>.30.3
+<span class="nv">PROMETHEUS_LINUX_DOWNLOAD_URL</span><span class="o">=</span><span class="s2">&quot;https://github.com/prometheus/prometheus/releases/download/v</span><span class="si">${</span><span class="nv">PROMETHEUS_VERSION</span><span class="si">}</span><span class="s2">/prometheus-</span><span class="si">${</span><span class="nv">PROMETHEUS_VERSION</span><span class="si">}</span><span class="s2">.linux-amd64.tar.gz&quot;</span>
+<span class="nv">PROMETHEUS_MACOS_DOWNLOAD_URL</span><span class="o">=</span><span class="s2">&quot;https://github.com/prometheus/prometheus/releases/download/v</span><span class="si">${</span><span class="nv">PROMETHEUS_VERSION</span><span class="si">}</span><span class="s2">/prometheus-</span><span class="si">${</span><span class="nv">PROMETHEUS_VERSION</span><span class="si">}</span><span class="s2">.darwin-amd64.tar.gz&quot;</span>
+<span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">&quot;</span> <span class="o">=</span> Linux <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">PROMETHEUS_DOWNLOAD_URL</span><span class="o">=</span><span class="nv">$PROMETHEUS_LINUX_DOWNLOAD_URL</span> <span class="o">||</span> <span class="nv">PROMETHEUS_DOWNLOAD_URL</span><span class="o">=</span><span class="nv">$PROMETHEUS_MACOS_DOWNLOAD_URL</span>
+<span class="nv">TSDB_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">/tsdb&quot;</span>                  <span class="c1">#&lt;-- directory to store Prometheus</span>
+<span class="nv">TSDB_DATABASE_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">/data/tsdb&quot;</span>    <span class="c1">#&lt;-- directory to store Prometheus data</span>
+<span class="nv">TSDB_CONFIG_FILE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$TSDB_DIRECTORY</span><span class="s2">/prometheus.yml&quot;</span>      <span class="c1">#&lt;-- location of Prometheus configuration file</span>
+<span class="nv">TSDB_RETENTION_TIME</span><span class="o">=</span><span class="s2">&quot;730d &quot;</span>                            <span class="c1">#&lt;-- retention time for Prometheus data</span>
+
+<span class="c1"># Download and extract Prometheus</span>
+mkdir -p <span class="s2">&quot;</span><span class="nv">$TSDB_DIRECTORY</span><span class="s2">&quot;</span>                             <span class="c1">#&lt;-- directory to store Prometheus</span>
+mkdir -p <span class="s2">&quot;</span><span class="nv">$TSDB_DATABASE_DIRECTORY</span><span class="s2">&quot;</span>                    <span class="c1">#&lt;-- create data directory for Prometheus</span>
+curl -L -o /tmp/prometheus.tar.gz <span class="s2">&quot;</span><span class="nv">$PROMETHEUS_DOWNLOAD_URL</span><span class="s2">&quot;</span>
+tar xzvf /tmp/prometheus.tar.gz --strip-components<span class="o">=</span><span class="m">1</span> -C <span class="s2">&quot;</span><span class="nv">$TSDB_DIRECTORY</span><span class="s2">&quot;</span>
+rm -f /tmp/prometheus.tar.gz
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="arangodb">
+<span id="id1"></span><h3>ArangoDB<a class="headerlink" href="#arangodb" title="Permalink to this headline"></a></h3>
+<div class="section" id="run">
+<h4>Run<a class="headerlink" href="#run" title="Permalink to this headline"></a></h4>
+<p>Open a new terminal window and enter the following to run the ArangoDB database process.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">run ArangoDB</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">INSTALL_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/cloudkeeper&quot;</span>
+<span class="nv">GRAPHDB_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">/db&quot;</span>                <span class="c1">#&lt;-- directory to store ArangoDB</span>
+<span class="nv">GRAPHDB_DATABASE_DIRECTORY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">/data/db&quot;</span>  <span class="c1">#&lt;-- directory to store ArangoDB data</span>
+<span class="nv">GRAPHDB_SERVER_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;tcp://127.0.0.1:8529&quot;</span>        <span class="c1">#&lt;-- IP:port for ArangoDB to listen on</span>
+<span class="nv">GRAPHDB_ROOT_PASSWORD</span><span class="o">=</span><span class="s2">&quot;changeme&quot;</span>                      <span class="c1">#&lt;-- ArangoDB root password</span>
+
+<span class="s2">&quot;</span><span class="nv">$GRAPHDB_DIRECTORY</span><span class="s2">/bin/arangod&quot;</span> <span class="se">\</span>
+  --database.directory <span class="s2">&quot;</span><span class="nv">$GRAPHDB_DATABASE_DIRECTORY</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --server.endpoint <span class="s2">&quot;</span><span class="nv">$GRAPHDB_SERVER_ENDPOINT</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --database.password <span class="s2">&quot;</span><span class="nv">$GRAPHDB_ROOT_PASSWORD</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prepare-graph-database-for-ckcore">
+<h4>Prepare graph database for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code><a class="headerlink" href="#prepare-graph-database-for-ckcore" title="Permalink to this headline"></a></h4>
+<p>Back in our original terminal window enter the following to create the cloudkeeper database and user for <code class="docutils literal notranslate"><span class="pre">ckcore</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Run <code class="docutils literal notranslate"><span class="pre">arangosh</span></code> to configure graph database</span><a class="headerlink" href="#id10" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF | &quot;$GRAPHDB_DIRECTORY/bin/arangosh&quot; --console.history false --server.password &quot;$GRAPHDB_ROOT_PASSWORD&quot;</span>
+<span class="s">const users = require(&#39;@arangodb/users&#39;);</span>
+<span class="s">users.save(&#39;$CKCORE_GRAPHDB_LOGIN&#39;, &#39;$CKCORE_GRAPHDB_PASSWORD&#39;);</span>
+<span class="s">db._createDatabase(&#39;$CKCORE_GRAPHDB_DATABASE&#39;);</span>
+<span class="s">users.grantDatabase(&#39;$CKCORE_GRAPHDB_LOGIN&#39;, &#39;$CKCORE_GRAPHDB_DATABASE&#39;, &#39;rw&#39;);</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="install-cloudkeeper-components">
+<h2>Install Cloudkeeper components<a class="headerlink" href="#install-cloudkeeper-components" title="Permalink to this headline"></a></h2>
+<div class="section" id="ckcore">
+<span id="setup-ckcore"></span><h3>ckcore<a class="headerlink" href="#ckcore" title="Permalink to this headline"></a></h3>
+<div class="section" id="install-ckcore">
+<h4>Install ckcore<a class="headerlink" href="#install-ckcore" title="Permalink to this headline"></a></h4>
+<p>You install <a class="reference internal" href="../cloudkeeper/components/index.html#component-ckcore"><span class="std std-ref">ckcore</span></a> via Python pip directly from our git repository.</p>
+<p>Please make sure you have git installed.</p>
+<p>First you need to install <a class="reference internal" href="../cloudkeeper/components/index.html#component-cklib"><span class="std std-ref">cklib</span></a> as a dependency to <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a>.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Install cklib und ckcore</span><a class="headerlink" href="#id11" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cklib&amp;subdirectory=cklib&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=ckcore&amp;subdirectory=ckcore&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h4>
+<p>You can access <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> help via <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ckcore</span> <span class="pre">--help</span></code></p>
+<p>Every CLI arg can also be specified using ENV variables, see <a class="reference internal" href="#configuration-environment"><span class="std std-ref">Configuration</span></a> for examples.</p>
+</div>
+<div class="section" id="run-ckcore">
+<h4>Run ckcore<a class="headerlink" href="#run-ckcore" title="Permalink to this headline"></a></h4>
+<p>Now we connect <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> to the previously installed <a class="reference internal" href="#arangodb"><span class="std std-ref">ArangoDB</span></a>.
+Please match your parameter values with the ones used while preparing <a class="reference internal" href="#arangodb"><span class="std std-ref">ArangoDB</span></a>.</p>
+<p>Open a new terminal window and enter the following to run the ArangoDB database process.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Run ckcore</span><a class="headerlink" href="#id12" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">INSTALL_PREFIX</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/cloudkeeper&quot;</span>
+<span class="nv">CKCORE_GRAPHDB_LOGIN</span><span class="o">=</span><span class="s2">&quot;cloudkeeper&quot;</span>             <span class="c1">#&lt;-- user for ArangoDB database</span>
+<span class="nv">CKCORE_GRAPHDB_PASSWORD</span><span class="o">=</span><span class="s2">&quot;changeme&quot;</span>             <span class="c1">#&lt;-- password for ArangoDB user</span>
+<span class="nv">CKCORE_GRAPHDB_DATABASE</span><span class="o">=</span><span class="s2">&quot;cloudkeeper&quot;</span>          <span class="c1">#&lt;-- database name in ArangoDB</span>
+<span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$INSTALL_PREFIX</span><span class="s2">&quot;</span>
+<span class="nb">source</span> venv/bin/activate
+
+ckcore <span class="se">\</span>
+  --graphdb-database <span class="s2">&quot;</span><span class="nv">$CKCORE_GRAPHDB_DATABASE</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --graphdb-username <span class="s2">&quot;</span><span class="nv">$CKCORE_GRAPHDB_LOGIN</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --graphdb-password <span class="s2">&quot;</span><span class="nv">$CKCORE_GRAPHDB_PASSWORD</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Successful launch log output</span><a class="headerlink" href="#id13" title="Permalink to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">...</span>
+<span class="go">...</span>
+<span class="go">20:25:11 [INFO] Initialization done. Starting API. [core.__main__]</span>
+<span class="go">20:25:11 [INFO] Listener task_handler added to following queues: [&#39;*&#39;] [core.event_bus]</span>
+<span class="go">======== Running on http://localhost:8900 ========</span>
+<span class="gp gp-VirtualEnv">(Press CTRL+C to quit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="securing-ckcore">
+<h4>Securing ckcore<a class="headerlink" href="#securing-ckcore" title="Permalink to this headline"></a></h4>
+<p>To enforce authentication for connections to <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> provide <code class="docutils literal notranslate"><span class="pre">--psk</span> <span class="pre">&quot;some-secret-pre-shared-key&quot;</span></code> as parameter on startup.</p>
+</div>
+</div>
+<div class="section" id="cksh">
+<span id="setup-cksh"></span><h3>cksh<a class="headerlink" href="#cksh" title="Permalink to this headline"></a></h3>
+<div class="section" id="install-cksh">
+<h4>Install cksh<a class="headerlink" href="#install-cksh" title="Permalink to this headline"></a></h4>
+<p>Back to our original terminal.</p>
+<p>We install <a class="reference internal" href="../cloudkeeper/components/index.html#component-cksh"><span class="std std-ref">cksh</span></a> via python pip directly from our git repository.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Install cksh</span><a class="headerlink" href="#id14" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cksh&amp;subdirectory=cksh&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Usage<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<p>You can access <a class="reference internal" href="#setup-cksh"><span class="std std-ref">cksh</span></a> help via <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cksh</span> <span class="pre">--help</span></code></p>
+<p>Every CLI arg can also be specified using ENV variables, see <a class="reference internal" href="#configuration-environment"><span class="std std-ref">Configuration</span></a> for examples.</p>
+</div>
+<div class="section" id="run-cksh">
+<h4>Run cksh<a class="headerlink" href="#run-cksh" title="Permalink to this headline"></a></h4>
+<p>Now you can connect <a class="reference internal" href="#setup-cksh"><span class="std std-ref">cksh</span></a> to the previous setup <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a>.
+Please match your parameter values to reflect your environment while running <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a>.</p>
+<p>We add the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> on first start to get used to what is happening exactly.
+You can skip this argument later to reduce log output volume when all components are set up.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">--ckcore-uri</span></code> and <code class="docutils literal notranslate"><span class="pre">--ckcore-ws-uri</span></code> if <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> is running on another instance or port.
+Add <code class="docutils literal notranslate"><span class="pre">--ckcore-graph</span></code> if you defined another name of the graph for <a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a></p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Run cksh</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cksh
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Verify cksh connection to ckcore</span><a class="headerlink" href="#id16" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">help</span>
+<span class="m">2021</span>-10-06 <span class="m">15</span>:09:40,705 - DEBUG - <span class="m">59675</span>/MainThread - Setting columns <span class="m">213</span>, rows <span class="m">115</span>
+<span class="m">2021</span>-10-06 <span class="m">15</span>:09:40,705 - DEBUG - <span class="m">59675</span>/MainThread - Sending <span class="nb">command</span> <span class="s2">&quot;help&quot;</span> to http://localhost:8900/cli/execute?graph<span class="o">=</span>ck
+ckcore CLI
+Valid placeholder string:
+    @UTC@ -&gt; <span class="m">2021</span>-10-06T13:09:40Z
+    @NOW@ -&gt; <span class="m">2021</span>-10-06T13:09:40Z
+    @TODAY@ -&gt; <span class="m">2021</span>-10-06
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ckworker">
+<span id="setup-ckworker"></span><h3>ckworker<a class="headerlink" href="#ckworker" title="Permalink to this headline"></a></h3>
+<div class="section" id="install-ckworker">
+<h4>Install ckworker<a class="headerlink" href="#install-ckworker" title="Permalink to this headline"></a></h4>
+<p>You install <a class="reference internal" href="../cloudkeeper/components/index.html#component-ckworker"><span class="std std-ref">ckworker</span></a> via python pip directly from our git repository.
+Please make sure you have git installed.
+First you need to install <a class="reference internal" href="../cloudkeeper/components/index.html#component-cklib"><span class="std std-ref">cklib</span></a> as a dependency to <a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a> as well.</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Install ckworker</span><a class="headerlink" href="#id17" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=ckworker&amp;subdirectory=ckworker&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ckworker-plugins">
+<span id="plugins"></span><h4>ckworker plugins<a class="headerlink" href="#ckworker-plugins" title="Permalink to this headline"></a></h4>
+<p><a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a> requires collector plugins to actually do something.
+A full list of available plugins can be found in the cloudkeeper <a class="reference external" href="https://github.com/someengineering/cloudkeeper/tree/main/plugins">repository</a></p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Install plugins</span><a class="headerlink" href="#id18" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-aws&amp;subdirectory=plugins/aws&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-example_collector&amp;subdirectory=plugins/example_collector&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-gcp&amp;subdirectory=plugins/gcp&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-github&amp;subdirectory=plugins/github&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-k8s&amp;subdirectory=plugins/k8s&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-onelogin&amp;subdirectory=plugins/onelogin&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-onprem&amp;subdirectory=plugins/onprem&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-slack&amp;subdirectory=plugins/slack&quot;</span>
+pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=cloudkeeper-plugin-vsphere&amp;subdirectory=plugins/vsphere&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Usage<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h4>
+<p>You can access <a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a> help via <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ckworker</span> <span class="pre">--help</span></code></p>
+<p>Every CLI arg can also be specified using ENV variables, see <a class="reference internal" href="#configuration-environment"><span class="std std-ref">Configuration</span></a> for examples.</p>
+<p><em>Important</em>: Every plugin will add its own CLI args to those of <a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a>. Check the individual plugin documentation for details or use <code class="docutils literal notranslate"><span class="pre">ckworker</span> <span class="pre">--help</span></code> to see the complete list.</p>
+</div>
+<div class="section" id="run-ckworker">
+<h4>Run ckworker<a class="headerlink" href="#run-ckworker" title="Permalink to this headline"></a></h4>
+<p>Now you can connect <a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a> to the previous setup <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a>.
+Please match your parameter values to reflect your environment while running <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a>.</p>
+<p>We add the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> on first start to get used to what is happening exactly.
+You can skip this argument later to reduce log output volume when all components are set up.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">--ckcore-uri</span></code> and <code class="docutils literal notranslate"><span class="pre">--ckcore-ws-uri</span></code> if <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> is running on another instance or port.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">--ckcore-graph</span></code> if you want to change the default name of the graph in the database to something other than ‘ck’.
+Keep in mind that you need to adjust <code class="docutils literal notranslate"><span class="pre">--ckcore-graph</span></code> for <a class="reference internal" href="#setup-cksh"><span class="std std-ref">cksh</span></a> and <a class="reference internal" href="#setup-ckmetrics"><span class="std std-ref">ckmetrics</span></a>, too.</p>
+<p>As we are using AWS in this example, please replace <code class="docutils literal notranslate"><span class="pre">--aws-access-key-id</span></code> and <code class="docutils literal notranslate"><span class="pre">--aws-secret-access-key</span></code> with values matching your environment.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Run ckworker</span><a class="headerlink" href="#id19" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ckworker <span class="se">\</span>
+  --verbose <span class="se">\</span>
+  --collector aws <span class="se">\</span>
+  --aws-access-key-id AKIAZGZEXAMPLE <span class="se">\</span>
+  --aws-secret-access-key vO51EW/8ILMGrSBV/Ia9FEXAMPLE
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Successful launch log output</span><a class="headerlink" href="#id20" title="Permalink to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2021-10-05 13:03:36,924 - INFO - 3189/MainThread - Cloudkeeper collectord initializing</span>
+<span class="go">2021-10-05 13:03:36,924 - DEBUG - 3189/MainThread - Only loading plugins of type PluginType.COLLECTOR</span>
+<span class="go">2021-10-05 13:03:36,925 - DEBUG - 3189/MainThread - Finding plugins</span>
+<span class="go">2021-10-05 13:03:37,443 - DEBUG - 3189/MainThread - Found plugin &lt;class &#39;cloudkeeper_plugin_aws.AWSPlugin&#39;&gt; (COLLECTOR)</span>
+<span class="go">[...]</span>
+<span class="go">2021-10-05 13:03:37,446 - INFO - 3189/workerd-events - Connecting to ckcore message bus</span>
+<span class="go">2021-10-05 13:03:37,446 - DEBUG - 3189/workerd-events - workerd-events registering for collect actions ({&#39;timeout&#39;: 10800, &#39;wait_for_completion&#39;: True})</span>
+<span class="go">2021-10-05 13:03:37,446 - DEBUG - 3189/workerd-tasks - Registering &lt;bound method CoreTasks.shutdown of &lt;CoreTasks(workerd-tasks, started 6197522432)&gt;&gt; with event SHUTDOWN (blocking: False, one-shot: False)</span>
+<span class="go">2021-10-05 13:03:37,448 - INFO - 3189/workerd-tasks - Connecting to ckcore task queue</span>
+<span class="go">2021-10-05 13:03:37,448 - DEBUG - 3189/workerd-tasks - workerd-tasks connecting to ws://localhost:8900/work/queue?task=tag</span>
+<span class="go">2021-10-05 13:03:37,454 - DEBUG - 3189/workerd-tasks - workerd-tasks connected to ckcore task queue</span>
+<span class="go">2021-10-05 13:03:37,514 - DEBUG - 3189/workerd-events - workerd-events registering for cleanup actions ({&#39;timeout&#39;: 10800, &#39;wait_for_completion&#39;: True})</span>
+<span class="go">2021-10-05 13:03:37,533 - DEBUG - 3189/workerd-events - workerd-events connecting to ws://localhost:8900/subscriber/workerd-events/handle</span>
+<span class="go">2021-10-05 13:03:37,536 - DEBUG - 3189/workerd-events - workerd-events connected to ckcore message bus</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ckmetrics">
+<span id="setup-ckmetrics"></span><h3>ckmetrics<a class="headerlink" href="#ckmetrics" title="Permalink to this headline"></a></h3>
+<div class="section" id="install-ckmetrics">
+<h4>Install ckmetrics<a class="headerlink" href="#install-ckmetrics" title="Permalink to this headline"></a></h4>
+<p>You install <a class="reference internal" href="../cloudkeeper/components/index.html#component-ckmetrics"><span class="std std-ref">ckmetrics</span></a> via python pip directly from our git repository.
+Please make sure you have git installed.</p>
+<p>If not already done in the <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> section, you need to install <a class="reference internal" href="../cloudkeeper/components/index.html#component-cklib"><span class="std std-ref">cklib</span></a> as dependency to <a class="reference internal" href="#setup-ckmetrics"><span class="std std-ref">ckmetrics</span></a> as well.</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Install ckmetrics</span><a class="headerlink" href="#id21" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="s2">&quot;git+https://github.com/someengineering/cloudkeeper.git@2.0.0a6#egg=ckmetrics&amp;subdirectory=ckmetrics&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>Usage<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h4>
+<p>You can access <a class="reference internal" href="#setup-ckmetrics"><span class="std std-ref">ckmetrics</span></a> help via <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ckmetrics</span> <span class="pre">--help</span></code></p>
+<p>Every CLI arg can also be specified using ENV variables, see <a class="reference internal" href="#configuration-environment"><span class="std std-ref">Configuration</span></a> for examples.</p>
+<p>Once started <a class="reference internal" href="#setup-ckmetrics"><span class="std std-ref">ckmetrics</span></a> will register for <code class="docutils literal notranslate"><span class="pre">generate_metrics</span></code> core events. When such an event is received it will
+generate Cloudkeeper metrics and provide them at the <code class="docutils literal notranslate"><span class="pre">/metrics</span></code> endpoint.</p>
+<p>For prometheus, setup your configuration needs to contain this configuration snippet.</p>
+<p>Adjust the <code class="docutils literal notranslate"><span class="pre">targets</span></code> to match your ckmetrics configuration</p>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text"><a class="reference internal" href="#prometheus"><span class="std std-ref">(Optional) Run Prometheus</span></a> configuration snippet</span><a class="headerlink" href="#id22" title="Permalink to this code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&quot;ckmetrics&quot;</span>
+    <span class="nt">static_configs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;localhost:9955&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="run-ckmetrics">
+<h4>Run ckmetrics<a class="headerlink" href="#run-ckmetrics" title="Permalink to this headline"></a></h4>
+<p>Now you can connect <a class="reference internal" href="#setup-ckmetrics"><span class="std std-ref">ckmetrics</span></a> to the previous setup <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> as well as let your prometheus connect to <a class="reference internal" href="#setup-ckmetrics"><span class="std std-ref">ckmetrics</span></a>.
+Please match your parameter values to reflect your environment while running <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a>.</p>
+<p>We add the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> flag to show what is happening in more detail.
+You can skip this argument later to reduce log output volume when all components are set up.</p>
+<p>Add <code class="docutils literal notranslate"><span class="pre">--ckcore-uri</span></code> and <code class="docutils literal notranslate"><span class="pre">--ckcore-ws-uri</span></code> if <a class="reference internal" href="#setup-ckcore"><span class="std std-ref">ckcore</span></a> is running on another instance or port.
+Add <code class="docutils literal notranslate"><span class="pre">--ckcore-graph</span></code> if you defined another name of the graph for <a class="reference internal" href="#setup-ckworker"><span class="std std-ref">ckworker</span></a></p>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Run ckmetrics</span><a class="headerlink" href="#id23" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ckmetrics --verbose
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">Successful launch log output</span><a class="headerlink" href="#id24" title="Permalink to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2021-10-05 13:20:43,798 - DEBUG - 6143/MainThread - generating metrics</span>
+<span class="go">2021-10-05 13:20:43,798 - INFO - 6143/webserver - CherryPy ENGINE Bus STARTING</span>
+<span class="go">2021-10-05 13:20:43,798 - DEBUG - 6143/ckmetrics - Registering &lt;bound method CoreActions.shutdown of &lt;CoreActions(ckmetrics, started 6189232128)&gt;&gt; with event SHUTDOWN (blocking: False, one-shot: False)</span>
+<span class="go">2021-10-05 13:20:43,798 - INFO - 6143/ckmetrics - Connecting to ckcore message bus</span>
+<span class="go">[...]</span>
+<span class="go">2021-10-05 13:20:43,824 - DEBUG - 6143/ckmetrics - ckmetrics connected to ckcore message bus</span>
+<span class="go">2021-10-05 13:20:44,904 - INFO - 6143/webserver - CherryPy ENGINE Serving on http://:::9955</span>
+<span class="go">2021-10-05 13:20:44,905 - INFO - 6143/webserver - CherryPy ENGINE Bus STARTED</span>
+</pre></div>
+</div>
+</div>
+<p>You can now access the metrics interface via <a class="reference external" href="http://localhost:9955/metrics">ckmetrics</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="optional-run-prometheus">
+<span id="prometheus"></span><h2>(Optional) Run Prometheus<a class="headerlink" href="#optional-run-prometheus" title="Permalink to this headline"></a></h2>
+<p>If you do not have prometheus already, here is how you configure and run it to make use of <a class="reference internal" href="../cloudkeeper/components/index.html#component-ckmetrics"><span class="std std-ref">ckmetrics</span></a> exporter data.</p>
+<div class="section" id="id6">
+<h3>Run<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<p>In this example we expect a configuration at your location defined in <code class="docutils literal notranslate"><span class="pre">TSDB_CONFIG_FILE</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">TSDB_CONFIG_FILE</span></code> configuration.</span><a class="headerlink" href="#id25" title="Permalink to this code"></a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">global</span><span class="p">:</span>
+    <span class="nt">scrape_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120s</span>
+    <span class="nt">evaluation_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">120s</span>
+
+    <span class="nt">alerting</span><span class="p">:</span>
+    <span class="nt">alertmanagers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">static_configs</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span>
+            <span class="c1"># - alertmanager:9093</span>
+
+    <span class="nt">rule_files</span><span class="p">:</span>
+    <span class="c1"># - &quot;first_rules.yml&quot;</span>
+    <span class="c1"># - &quot;second_rules.yml&quot;</span>
+
+    <span class="nt">scrape_configs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&quot;prometheus&quot;</span>
+        <span class="nt">static_configs</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;localhost:9090&quot;</span><span class="p p-Indicator">]</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&quot;ckmetrics&quot;</span>
+        <span class="nt">static_configs</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;localhost:9955&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">Create data directory and run Prometheus</span><a class="headerlink" href="#id26" title="Permalink to this code"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="nv">$TSDB_DIRECTORY</span><span class="s2">/prometheus&quot;</span> --config.file<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$TSDB_CONFIG_FILE</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --storage.tsdb.path<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$TSDB_DATABASE_DIRECTORY</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --storage.tsdb.retention.time<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$TSDB_RETENTION_TIME</span><span class="s2">&quot;</span> <span class="se">\</span>
+  --web.console.libraries<span class="o">=</span>/usr/local/tsdb/console_libraries <span class="se">\</span>
+  --web.console.templates<span class="o">=</span>/usr/local/tsdb/consoles <span class="se">\</span>
+  --web.enable-lifecycle <span class="se">\</span>
+  --web.enable-admin-api
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="you-made-it">
+<h2>You made it!<a class="headerlink" href="#you-made-it" title="Permalink to this headline"></a></h2>
+<p>Congratulations, you have now finished the setup of every cloudkeeper component.
+Thank you so much for exploring Cloudkeeper. This is just the beginning.</p>
+<div class="section" id="what-now">
+<h3>What now?<a class="headerlink" href="#what-now" title="Permalink to this headline"></a></h3>
+<p>All documentation is under heavy development, including this tutorial.
+We extend and improve this documentation almost daily. Please star this <a class="reference external" href="http://github.com/someengineering/cloudkeeper">repo</a> to support us and stay up to date.</p>
+<div class="line-block">
+<div class="line">Please explore Cloudkeeper, build your queries and discover your infrastructure.</div>
+<div class="line">A good place to continue is joining our community to get the most out of Cloudkeeper and the experiences collected from many different SREs, companies and curious people.</div>
+<div class="line">We would love to hear from you with your feedback, experiences and interesting queries and use cases.</div>
+</div>
+</div>
+<div class="section" id="how-you-get-more-assistance">
+<h3>How you get more assistance<a class="headerlink" href="#how-you-get-more-assistance" title="Permalink to this headline"></a></h3>
+<div class="line-block">
+<div class="line">Reach out to us if you have any questions, improvements, bugs!</div>
+<div class="line">Contributions are very much appreciated.</div>
+</div>
+<div class="line-block">
+<div class="line">Discord:</div>
+<div class="line"><a class="reference external" href="https://discord.gg/3G3sX6y3bt">https://discord.gg/3G3sX6y3bt</a></div>
+</div>
+<div class="line-block">
+<div class="line">GitHub Issue:</div>
+<div class="line"><a class="reference external" href="https://github.com/someengineering/cloudkeeper/issues/new">https://github.com/someengineering/cloudkeeper/issues/new</a></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quick start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="access_permissions.html" class="btn btn-neutral float-right" title="Access Permissions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Some Engineering Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-237E5P27RE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-237E5P27RE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
